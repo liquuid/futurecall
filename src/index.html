@@ -43,7 +43,7 @@
         var cena = 1;
         var content = [];
         var raw_content = [];
-        var textSpeed = 10;
+        var textSpeed = 100;
         var nome = "";
         var resp1 = {};
         var resp2 = {};
@@ -109,7 +109,8 @@
                 content[5] = content[4] + '\n' + raw_content[5]
                 content[6] = content[5] + '\n' + raw_content[6]
 
-        
+                this.cameras.main.setBounds(0, 0, 1920, 1080);
+
                 var fundo = this.add.image(this.game.config.width/2 - 1920/2 , 0, 'bg').setOrigin(0).setInteractive();
 
                 resp1 = this.add.text(this.game.config.width -540, config.height -205, '> que tipo de ajuda?', { font: '32px ModernDOS9x16',wordWrap: { width: 450 }, align: 'right', fill: '#00d100' }).setOrigin(0).setInteractive();;
@@ -133,6 +134,7 @@
                 var popUp = this.add.image(config.width/2 -1350/2 , config.height -650, 'popUp').setOrigin(0).setInteractive();
                 map = this.add.image(0,0, 'map').setOrigin(0).setInteractive();
                 map.visible = false;
+                map.scale = 1.8;
                 vidTitle = this.add.video(0,0,  'title').setOrigin(0);
                 vidTitle.visible = false;
                 
@@ -191,7 +193,7 @@
 
                 chatWindowContainer.visible = false;
                 
-                this.time.addEvent({ delay: 50, callback: function (){ 
+                this.time.addEvent({ delay: 5000, callback: function (){ 
                     popUp.visible = true;
                 }});
 
@@ -299,7 +301,7 @@
                         textDiag.text = "             > " + nome + "\n" + content[7] + '\n' + '...';
                     },loop: false});
                     
-                    gameInstance.instance.time.addEvent({ delay: 52*textSpeed, callback: function (){ 
+                    gameInstance.instance.time.addEvent({ delay: 42*textSpeed, callback: function (){ 
                         console.log(8, cena)
                         textDiag.text = "             > " + nome + "\n" +content[8]  + '\n';
                         resp1.visible = true;
@@ -326,44 +328,44 @@
                     content[14] = content[13] + '\n\n' + raw_content[14]
                     content[15] = content[14] + '\n\n' + raw_content[15]
 
+                   // gameInstance.instance.time.addEvent({ delay: 6*textSpeed, callback: function (){ 
+
+                  //      textDiag.text = content[10]  + '\n' + '...';
+                   // }});
+
                     gameInstance.instance.time.addEvent({ delay: 6*textSpeed, callback: function (){ 
-
-                        textDiag.text = content[10]  + '\n' + '...';
-                    }});
-
-                    gameInstance.instance.time.addEvent({ delay: textSpeed, callback: function (){ 
                         console.log(9);
                          textDiag.text =content[9]  + '\n' + '...';
                          //popUp.visible = true;
                      }});
-                     gameInstance.instance.time.addEvent({ delay: 20*textSpeed, callback: function (){ 
+                     gameInstance.instance.time.addEvent({ delay: 58*textSpeed, callback: function (){ 
                         console.log(10);
                          textDiag.text =content[10]  + '\n' + '...';
                          //popUp.visible = true;
                      }});
-                     gameInstance.instance.time.addEvent({ delay: 40*textSpeed, callback: function (){ 
+                     gameInstance.instance.time.addEvent({ delay: 110*textSpeed, callback: function (){ 
                          console.log(11);
                          textDiag.text = content[11]  + '\n' + '...';
                          //popUp.visible = true;
                      }});
-                     gameInstance.instance.time.addEvent({ delay: 60*textSpeed, callback: function (){ 
+                     gameInstance.instance.time.addEvent({ delay: 130*textSpeed, callback: function (){ 
                          console.log(12);
                          textDiag.text = content[12]  + '\n' + '...';
                          //popUp.visible = true;
                      }});
-                     gameInstance.instance.time.addEvent({ delay: 80*textSpeed, callback: function (){ 
+                     gameInstance.instance.time.addEvent({ delay: 160*textSpeed, callback: function (){ 
                          console.log(13);
                          textDiag.text = content[13]  + '\n' + '...';
                          cena = 3;
                          //popUp.visible = true;
                      }});
-                     gameInstance.instance.time.addEvent({ delay: 100*textSpeed, callback: function (){ 
+                     gameInstance.instance.time.addEvent({ delay: 200*textSpeed, callback: function (){ 
                         console.log(14);
                         textDiag.text = content[14]  + '\n' + '...' ;
                         cena = 3;
                         //popUp.visible = true;
                     }});
-                    gameInstance.instance.time.addEvent({ delay: 120*textSpeed, callback: function (){ 
+                    gameInstance.instance.time.addEvent({ delay:  280*textSpeed, callback: function (){ 
                         console.log(15);
                         textDiag.text = content[15];
                         cena = 3;
@@ -387,44 +389,44 @@
                     content[14] = content[13] + '\n\n' + raw_content[14]
                     content[15] = content[14] + '\n\n' + raw_content[15]
 
+                   // gameInstance.instance.time.addEvent({ delay: 6*textSpeed, callback: function (){ 
+
+                  //      textDiag.text = content[10]  + '\n' + '...';
+                   // }});
+
                     gameInstance.instance.time.addEvent({ delay: 6*textSpeed, callback: function (){ 
-
-                        textDiag.text = content[10]  + '\n' + '...';
-                    }});
-
-                    gameInstance.instance.time.addEvent({ delay: textSpeed, callback: function (){ 
                         console.log(9);
                          textDiag.text =content[9]  + '\n' + '...';
                          //popUp.visible = true;
                      }});
-                     gameInstance.instance.time.addEvent({ delay: 20*textSpeed, callback: function (){ 
+                     gameInstance.instance.time.addEvent({ delay: 58*textSpeed, callback: function (){ 
                         console.log(10);
                          textDiag.text =content[10]  + '\n' + '...';
                          //popUp.visible = true;
                      }});
-                     gameInstance.instance.time.addEvent({ delay: 40*textSpeed, callback: function (){ 
+                     gameInstance.instance.time.addEvent({ delay: 110*textSpeed, callback: function (){ 
                          console.log(11);
                          textDiag.text = content[11]  + '\n' + '...';
                          //popUp.visible = true;
                      }});
-                     gameInstance.instance.time.addEvent({ delay: 60*textSpeed, callback: function (){ 
+                     gameInstance.instance.time.addEvent({ delay: 130*textSpeed, callback: function (){ 
                          console.log(12);
                          textDiag.text = content[12]  + '\n' + '...';
                          //popUp.visible = true;
                      }});
-                     gameInstance.instance.time.addEvent({ delay: 80*textSpeed, callback: function (){ 
+                     gameInstance.instance.time.addEvent({ delay: 160*textSpeed, callback: function (){ 
                          console.log(13);
                          textDiag.text = content[13]  + '\n' + '...';
                          cena = 3;
                          //popUp.visible = true;
                      }});
-                     gameInstance.instance.time.addEvent({ delay: 100*textSpeed, callback: function (){ 
+                     gameInstance.instance.time.addEvent({ delay: 200*textSpeed, callback: function (){ 
                         console.log(14);
-                        textDiag.text = content[14]  + '\n' + '...';
+                        textDiag.text = content[14]  + '\n' + '...' ;
                         cena = 3;
                         //popUp.visible = true;
                     }});
-                    gameInstance.instance.time.addEvent({ delay: 120*textSpeed, callback: function (){ 
+                    gameInstance.instance.time.addEvent({ delay:  280*textSpeed, callback: function (){ 
                         console.log(15);
                         textDiag.text = content[15];
                         cena = 3;
@@ -434,8 +436,22 @@
                 });
                 link.on('pointerdown', function(){
                     chatWindowContainer.visible = false;
-                    //vidTitle.visible = true;
-                    //vidTitle.play(true);
+                    map.visible = true;
+                    //gameInstance.instance.cameras.main.pan(900, 800, 2000, 'Sine.easeInOut');
+                    gameInstance.instance.time.addEvent({ delay: 0, callback: function (){ 
+                        gameInstance.instance.cameras.main.zoomTo(0.5, 3000);
+                         
+                            gameInstance.instance.cameras.main.fadeOut(3000,0)
+                            gameInstance.instance.time.addEvent({ delay: 4000, callback: function (){ 
+                                gameInstance.instance.cameras.main.zoom = 1
+                                gameInstance.instance.time.addEvent({ delay: 0, callback: function (){ 
+                                    gameInstance.instance.cameras.main.fadeIn(0,777)
+                                    vidTitle.visible = true;
+                                    vidTitle.play(true);
+                                }});
+                            }});
+                    }});
+                    
                 });
 
   
