@@ -8,6 +8,30 @@
             font-family: ModernDOS9x16;
             src: url('./assets/ModernDOS9x16.ttf');
         }
+        html, body {
+            height: 100%;
+          }
+          
+          body {
+            margin: 0;
+            padding: 0;
+            background: #111;
+            color: #eee;
+            font: caption;
+          }
+          
+          canvas {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            /* <https://caniuse.com/#feat=object-fit> */
+          }
+          
+          #version {
+            position: absolute;
+            left: 5px;
+            top: 605px;
+          }
     </style>
 </head>
 
@@ -19,16 +43,19 @@
         var cena = 1;
         var content = [];
         var raw_content = [];
-        var textSpeed = 100;
+        var textSpeed = 10;
         var nome = "";
         var resp1 = {};
         var resp2 = {};
-        
+        var prompt = "|"
+        var prompt_state = false;
+       
+
         class Controller extends Phaser.Scene {
 
-            constructor ()
+            constructor (config)
             {
-                super();
+                super(config);
         
                 this.count = 0;
 
@@ -66,7 +93,8 @@
                     "preciso ser flash, me ajuda nessa",
                     "você só precisa clicar nesse link e me mostrar o que aparece",
                 ];
-                
+        
+
                 var keyBoardLocked = true; 
                 content[0] = raw_content[0]
                 content[1] = content[0] + '\n' + raw_content[1]
@@ -88,11 +116,30 @@
                 var textEntry = this.add.text(this.game.config.width -540, config.height -75, '', { font: '32px ModernDOS9x16',wordWrap: { width: 450 }, align: 'right', fill: '#ffffff' });
 
                 var chatWindow = this.add.image(this.game.config.width -550, config.height -750, 'chatWindow').setOrigin(0);
-                var chatWindowContainer = this.add.container(0, 0, [ chatWindow , textDiag, textEntry, resp1, resp2]);
+
+                prompt = this.add.text(this.game.config.width -540, config.height -75, '|', { font: '32px ModernDOS9x16',wordWrap: { width: 450 }, align: 'right', fill: '#ffffff' });
+
+
+                var chatWindowContainer = this.add.container(0, 0, [ chatWindow , textDiag, textEntry, resp1, resp2, prompt]);
 
                 var zone = this.add.zone(config.width -315, config.height -390 , 470, 600).setOrigin(0).setInteractive();
                 var popUp = this.add.image(config.width/2 -1350/2 , config.height -650, 'popUp').setOrigin(0).setInteractive();
-
+                
+                gameInstance.instance.time.addEvent({ delay: 500,  callback: function (){ 
+                    if (!keyBoardLocked){
+                        if (textEntry.text.length < 1 ){ 
+                            if (prompt_state) {
+                                prompt_state = false;
+                                prompt.visible = false;
+                            } else {
+                                prompt_state = true;
+                                prompt.visible = true;
+                            };
+                        } else {
+                            prompt.visible = false;
+                        }
+                    }
+                }, loop: true});
 
                 resp1.visible = false;
                 resp2.visible = false;
@@ -102,7 +149,7 @@
 
                 chatWindowContainer.visible = false;
                 
-                this.time.addEvent({ delay: 5000, callback: function (){ 
+                this.time.addEvent({ delay: 50, callback: function (){ 
                     popUp.visible = true;
                 }});
 
@@ -129,7 +176,7 @@
                 });
                 
                 
-
+                //gameInstance.instance.events.on('resize', function () {console.log(game.resize(100, 100));}) 
 
                 fundo.on('drag', function (pointer, dragX, dragY) {
                     console.log(dragY);
@@ -138,8 +185,8 @@
                         return;
                     }
 
-                    if (dragY < -3400 ) {
-                        this.y = -3400;
+                    if (dragY < -2267 ) {
+                        this.y = -2267;
                         return;
                     }
                     this.y = dragY;
@@ -346,6 +393,13 @@
   
             }
             update(func){
+                
+                (function() {
+                   
+                    const gameId = document.getElementById("game"); // Target div that wraps the phaser game
+                    gameId.style.width = '100%'; // set width to 100%
+                    gameId.style.height = '100%'; // set height to 100%
+                })(); // run function
                 if ( cena === 2 ){
 
 
@@ -407,18 +461,32 @@
                     debug: false,
                     gravity: { y: 0 }
                 }
-            }
+            },
+            plugins: {
+                global: [{
+                  key: 'GameScalePlugin',
+                  plugin: Phaser.Plugins.GameScalePlugin,
+                  mapping: 'gameScale',
+                  data: {
+                    minWidth: 400,
+                    minHeight: 300,
+                    maxWidth: 1600,
+                    maxHeight: 1200,
+                    snap: 0
+                  }
+                }]
+              }
         };
         
         var game = new Phaser.Game(config);
         
         window.addEventListener('resize', function (event) {
-        
+           
             game.resize(window.innerWidth, window.innerHeight);
         
-        }, false);
+        }, true);
     </script>
-    <div style="font-family:ModernDOS9x16; position:absolute; left:-1000px; visibility:hidden;">.</div>
+    <div id="game" style="font-family:ModernDOS9x16; position:absolute; left:-1000px; visibility:hidden;">.</div>
 
 </body>
 </html>
