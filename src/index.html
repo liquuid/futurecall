@@ -2,7 +2,7 @@
 <html>
 <head>
     <meta charset="UTF-8" />
-    <script src="https://cdn.jsdelivr.net/npm/phaser@3.15.1/dist/phaser-arcade-physics.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/phaser@3.55.2/dist/phaser-arcade-physics.min.js"></script>
     <style>
         @font-face {
             font-family: ModernDOS9x16;
@@ -49,6 +49,9 @@
         var resp2 = {};
         var prompt = "|"
         var prompt_state = false;
+        var link = "";
+        var map =  "";
+        var vidTitle = "";
        
 
         class Controller extends Phaser.Scene {
@@ -66,6 +69,8 @@
                 this.load.image('bg', 'assets/phaser3/Fofocas da Manha.jpg');
                 this.load.image('chatWindow', 'assets/phaser3/chatbox.jpg');
                 this.load.image('popUp', 'assets/phaser3/notificacao.png');
+                this.load.image('map', 'assets/phaser3/mapa brasil.jpg');
+                this.load.video('title', 'assets/phaser3/title.mp4', 'loadeddata', false, true);
 
             }
         
@@ -108,7 +113,7 @@
                 var fundo = this.add.image(this.game.config.width/2 - 1920/2 , 0, 'bg').setOrigin(0).setInteractive();
 
                 resp1 = this.add.text(this.game.config.width -540, config.height -205, '> que tipo de ajuda?', { font: '32px ModernDOS9x16',wordWrap: { width: 450 }, align: 'right', fill: '#00d100' }).setOrigin(0).setInteractive();;
-                resp2 = this.add.text(this.game.config.width -540, config.height -145, '> quem é você?', { font: '32px ModernDOS9x16',wordWrap: { width: 450 }, align: 'right', fill: '#00d100' }).setOrigin(0).setInteractive();;
+                resp2 = this.add.text(this.game.config.width -540, config.height -145, '  quem é você?', { font: '32px ModernDOS9x16',wordWrap: { width: 450 }, align: 'right', fill: '#00d100' }).setOrigin(0).setInteractive();;
 
                 textDiag = this.add.text(this.game.config.width -540, config.height -650, "..." ,{ font: '32px ModernDOS9x16',wordWrap: { width: 450 }, align: 'left', fill: '#00d100' });    
                 textDiag.lineSpacing=15;
@@ -119,11 +124,35 @@
 
                 prompt = this.add.text(this.game.config.width -540, config.height -75, '|', { font: '32px ModernDOS9x16',wordWrap: { width: 450 }, align: 'right', fill: '#ffffff' });
 
+                link  = this.add.text(this.game.config.width -437, config.height -337, 'link', { font: '600 36px ModernDOS9x16', wordWrap: { width: 450 }, align: 'right', fill: '#77ff77' }).setOrigin(0).setInteractive();
+                link.visible = false;
 
-                var chatWindowContainer = this.add.container(0, 0, [ chatWindow , textDiag, textEntry, resp1, resp2, prompt]);
+                var chatWindowContainer = this.add.container(0, 0, [ chatWindow , textDiag, textEntry, resp1, resp2, prompt, link]);
 
                 var zone = this.add.zone(config.width -315, config.height -390 , 470, 600).setOrigin(0).setInteractive();
                 var popUp = this.add.image(config.width/2 -1350/2 , config.height -650, 'popUp').setOrigin(0).setInteractive();
+                map = this.add.image(0,0, 'map').setOrigin(0).setInteractive();
+                map.visible = false;
+                vidTitle = this.add.video(0,0,  'title').setOrigin(0);
+                vidTitle.visible = false;
+                
+                fundo.on('wheel', function (pointer, deltaX, deltaY, deltaZ) {
+
+                    
+
+                    if (this.y > 0 ) {
+                        this.y = 0 ;
+                        return;
+                    }
+
+                    if (this.y < -2267 ) {
+                        this.y = -2267;
+                        return;
+                    }
+                    this.y += deltaY;
+
+            
+                });
                 
                 gameInstance.instance.time.addEvent({ delay: 500,  callback: function (){ 
                     if (!keyBoardLocked){
@@ -192,7 +221,7 @@
                 //gameInstance.instance.events.on('resize', function () {console.log(game.resize(100, 100));}) 
 
                 fundo.on('drag', function (pointer, dragX, dragY) {
-                    console.log(dragY);
+     
                     if (dragY > 0 ) {
                         this.y = 0 ;
                         return;
@@ -336,9 +365,10 @@
                     }});
                     gameInstance.instance.time.addEvent({ delay: 120*textSpeed, callback: function (){ 
                         console.log(15);
-                        textDiag.text = content[15]  + '\n' + '...';
+                        textDiag.text = content[15];
                         cena = 3;
                         //popUp.visible = true;
+                        link.visible = true;
                     }});
                 });
                 resp2.on('pointerdown', function(){
@@ -384,13 +414,13 @@
                      }});
                      gameInstance.instance.time.addEvent({ delay: 80*textSpeed, callback: function (){ 
                          console.log(13);
-                         textDiag.text = content[13];
+                         textDiag.text = content[13]  + '\n' + '...';
                          cena = 3;
                          //popUp.visible = true;
                      }});
                      gameInstance.instance.time.addEvent({ delay: 100*textSpeed, callback: function (){ 
                         console.log(14);
-                        textDiag.text = content[14];
+                        textDiag.text = content[14]  + '\n' + '...';
                         cena = 3;
                         //popUp.visible = true;
                     }});
@@ -399,9 +429,14 @@
                         textDiag.text = content[15];
                         cena = 3;
                         //popUp.visible = true;
+                        link.visible = true;
                     }});
                 });
-
+                link.on('pointerdown', function(){
+                    chatWindowContainer.visible = false;
+                    //vidTitle.visible = true;
+                    //vidTitle.play(true);
+                });
 
   
             }
