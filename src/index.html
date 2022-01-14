@@ -145,6 +145,19 @@
                 resp2.visible = false;
 
 
+                resp1.on('pointermove', function(pointer, x,y, event){
+                    resp1.text='> que tipo de ajuda?';
+                    resp2.text='  quem é você?';
+
+
+                });
+                resp2.on('pointermove', function(pointer, x,y, event){
+                    resp2.text='> quem é você?';
+                    resp1.text='  que tipo de ajuda?';
+
+                });
+
+
                 popUp.visible = false;
 
                 chatWindowContainer.visible = false;
