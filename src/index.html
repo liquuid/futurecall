@@ -52,6 +52,7 @@
         var link = "";
         var map =  "";
         var vidTitle = "";
+        var botao = "";
        
 
         class Controller extends Phaser.Scene {
@@ -70,6 +71,7 @@
                 this.load.image('chatWindow', 'assets/phaser3/chatbox.jpg');
                 this.load.image('popUp', 'assets/phaser3/notificacao.png');
                 this.load.image('map', 'assets/phaser3/mapa brasil.jpg');
+                this.load.image('botao', 'assets/phaser3/botao.png');
                 this.load.video('title', 'assets/phaser3/title.mp4', 'loadeddata', false, true);
 
             }
@@ -113,6 +115,9 @@
 
                 var fundo = this.add.image(this.game.config.width/2 - 1920/2 , 0, 'bg').setOrigin(0).setInteractive();
 
+                botao = this.add.image(this.game.config.width -125, config.height -80, 'botao').setOrigin(0).setInteractive();
+
+
                 resp1 = this.add.text(this.game.config.width -540, config.height -205, '> que tipo de ajuda?', { font: '32px ModernDOS9x16',wordWrap: { width: 450 }, align: 'right', fill: '#00d100' }).setOrigin(0).setInteractive();;
                 resp2 = this.add.text(this.game.config.width -540, config.height -145, '  quem é você?', { font: '32px ModernDOS9x16',wordWrap: { width: 450 }, align: 'right', fill: '#00d100' }).setOrigin(0).setInteractive();;
 
@@ -128,7 +133,7 @@
                 link  = this.add.text(this.game.config.width -437, config.height -337, 'link', { font: '600 36px ModernDOS9x16', wordWrap: { width: 450 }, align: 'right', fill: '#77ff77' }).setOrigin(0).setInteractive();
                 link.visible = false;
 
-                var chatWindowContainer = this.add.container(0, 0, [ chatWindow , textDiag, textEntry, resp1, resp2, prompt, link]);
+                var chatWindowContainer = this.add.container(0, 0, [ chatWindow , textDiag, textEntry, resp1, resp2, prompt, link, botao]);
 
                 var zone = this.add.zone(config.width -315, config.height -390 , 470, 600).setOrigin(0).setInteractive();
                 var popUp = this.add.image(config.width/2 -1350/2 , config.height -650, 'popUp').setOrigin(0).setInteractive();
@@ -197,7 +202,7 @@
                     popUp.visible = true;
                 }});
 
-                zone.on('pointermove', function (pointer) {
+                /*zone.on('pointermove', function (pointer) {
 
                     if (pointer.isDown)
                     {
@@ -206,7 +211,7 @@
                         this.textDiag.y = Phaser.Math.Clamp(this.textDiag.y, -400, 300);
                     }
             
-                });
+                });*/
                 chatWindowContainer.setInteractive(new Phaser.Geom.Rectangle(this.game.config.width -550, config.height -850, chatWindow.width, chatWindow.height), Phaser.Geom.Rectangle.Contains);
 
                 this.input.setDraggable(chatWindowContainer);
@@ -222,7 +227,7 @@
                 
                 //gameInstance.instance.events.on('resize', function () {console.log(game.resize(100, 100));}) 
 
-                fundo.on('drag', function (pointer, dragX, dragY) {
+             /*   fundo.on('drag', function (pointer, dragX, dragY) {
      
                     if (dragY > 0 ) {
                         this.y = 0 ;
@@ -235,7 +240,7 @@
                     }
                     this.y = dragY;
 
-                })
+                })*/
 
                 popUp.on('pointerdown', function(){
                     popUp.visible = false;
@@ -271,7 +276,35 @@
                         
                         //popUp.visible = true;
                     }});
+
+                    botao.on('pointerdown', function(pointer){
+
+                        if(textEntry.text.length > 0 && !keyBoardLocked ){
+                            nome = textEntry.text;
+                            textEntry.text = ""; 
+                            content[7] = raw_content[7] + nome;
+                            keyBoardLocked = true;
+                       
+                                                    
+                            content[7] = raw_content[7] + nome;
+                            content[8] = content[7] + '\n\n' + raw_content[8]
+                            content[9] = content[8] + '\n' + raw_content[9]
     
+    
+                            gameInstance.instance.time.addEvent({ delay: textSpeed, callback: function (){ 
+                                console.log(7, cena)
+                                textDiag.text = "             > " + nome + "\n" + content[7] + '\n' + '...';
+                            },loop: false});
+                            
+                            gameInstance.instance.time.addEvent({ delay: 42*textSpeed, callback: function (){ 
+                                console.log(8, cena)
+                                textDiag.text = "             > " + nome + "\n" +content[8]  + '\n';
+                                resp1.visible = true;
+                                resp2.visible = true;
+                            },loop: false});
+    
+                        }   
+                    });
 
     
                 });
@@ -546,7 +579,7 @@
         
         window.addEventListener('resize', function (event) {
            
-            game.resize(window.innerWidth, window.innerHeight);
+            //game.resize(window.innerWidth, window.innerHeight);
         
         }, true);
     </script>
