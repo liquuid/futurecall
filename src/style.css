@@ -1,0 +1,131 @@
+@font-face {
+  font-family: 'ModernDOS9x16' ;
+  src: url('./assets/ModernDOS9x16.ttf');
+}
+
+*, *::before {
+  box-sizing: border-box; }
+
+  body {
+    height: 100%;
+    background-color: #cccccc;
+    font-family: 'ModernDOS9x16';
+   }
+
+#chatheader {
+    padding: 10px;
+    
+    z-index: 10;
+    background-color: #00d201;
+    color: #000;
+    position: relative;
+    font: 32px "ModernDOS9x16";
+}
+
+#chat {
+width: 470px;
+cursor: move;
+position: fixed;
+}
+.chat {
+  display: flex;
+  
+  height: 740px;
+  background-color: #000000;
+  flex-direction: column-reverse;
+  padding: .75rem;
+  overflow: hidden;
+  border: 1px #9bc dashed;
+  font: 32px "ModernDOS9x16";
+  color: #313131;
+  position: relative; }
+  .chat__inner {
+    display: flex;
+    flex-direction: column; }
+  .chat::before {
+    content: "";
+    position: absolute;
+    z-index: 1;
+    top: 0;
+    height: 40%;
+    width: 256px;
+    }
+
+.chat p {
+  margin: 0;
+  padding: 0; }
+
+.chat__content {
+  flex: 0 1 auto;
+  padding: 1rem;
+  margin: 0 .5rem;
+  background: var(--bgcolor);
+  border-radius: var(--radius); }
+
+.chat__message {
+  width: 85%;
+  display: flex;
+  align-items: flex-end;
+  transform-origin: 0 100%;
+  padding-top: 0;
+  transform: scale(0);
+  max-height: 0;
+  overflow: hidden;
+  animation: message .15s ease-out 0s forwards;
+  animation-delay: var(--timeline);
+  --bgcolor: #d8d8d8;
+  --radius: 12px 12px 12px 0; }
+  .chat__message_B {
+    flex-direction: row-reverse;
+    text-align: right;
+    align-self: flex-end;
+    transform-origin: 100% 100%;
+    --bgcolor: #d2ecd4;
+    --radius: 12px 12px 0 12px; }
+  /*.chat__message::before {
+    content: "";
+    flex: 0 0 40px;
+    aspect-ratio: 1 / 1;
+    background: var(--bgcolor);
+    border-radius: 50%; }
+*/
+@keyframes message {
+  0% {
+    max-height: 100vmax; }
+  80% {
+    transform: scale(1.1); }
+  100% {
+    transform: scale(1);
+    max-height: 100vmax;
+    overflow: visible;
+    padding-top: 1rem; } }
+
+h1 {
+  text-align: center;
+  font-family: "ModernDOS9x16";
+  font-size: 4rem;
+  color: #9bc; }
+
+* {
+  font-family: "ModernDOS9x16"; }
+
+code {
+  display: inline-block;
+  padding: .35rem;
+  color: yellowgreen;no-
+  background: #f6f6f6; }
+
+
+
+.bg-image {
+  /* Full height */
+  height: 300vh;
+
+  /* Center and scale the image nicely */
+  background-position: center;
+  background-repeat: repeat;
+  background-size: 100% 100%;
+}
+
+.img1 { background-image: url("assets/phaser3/Fofocas da Manha.jpg"); 
+}
