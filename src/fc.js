@@ -1,4 +1,6 @@
-raw_content = [
+var textSpeed = 1/3;
+
+var dialogos = [
     "oi? tem alguém aí??",
     "PARAKEDAS, TEM UMA PESSOA LENDO",
     "você não tem noção do quanto esperei pelo seu click",
@@ -22,17 +24,40 @@ function frase(text, time, quemfala) {
     if (quemfala == "player" ){
         speaker = "chat__message_B"
     } else {
-        speaker = "chat__message_B"
+        speaker = "chat__message_A"
     }
-    if (!time) {
+    if (!time  || time === 0) {
         time = 0;
-    }
-    return ("      <div class=\"chat__message " +speaker+"\" style=\"--timeline: " + time + "s;\">\
+    } 
+    
+    return ("      <div class=\"chat__message " +speaker+"\" style=\"--timeline: " + time*textSpeed + "s;\">\
                         <div class=\"chat__content\">\
                         <p>" + text + "</p>   \
                         </div>\
                     </div>");
 }
+
+window.onload = function(){
+
+
+
+    const div = document.createElement('div');
+    div.className = 'chat__inner';
+    $("#chatWin").append(div);
+
+
+    $(".chat__inner").append(frase(dialogos[0], 21, "NPC"));
+    $(".chat__inner").append(frase(dialogos[1], 52, "NPC"));
+    $(".chat__inner").append(frase(dialogos[2], 96, "NPC"));
+    $(".chat__inner").append(frase(dialogos[3], 115, "NPC"));
+    $(".chat__inner").append(frase(dialogos[4], 185, "NPC"));
+    $(".chat__inner").append(frase(dialogos[5], 205, "NPC"));
+    $(".chat__inner").append(frase(dialogos[6], 215, "NPC"));
+    
+
+
+}
+
 
 class Controller {
 

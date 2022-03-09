@@ -4,89 +4,34 @@
    <title>Future Call</title>
     <meta charset="UTF-8" />
     <link rel="stylesheet" href="style.css">
+    <script
+  src="https://code.jquery.com/jquery-3.6.0.min.js"
+  integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+  crossorigin="anonymous"></script>
+  <script src="https://code.jquery.com/ui/1.13.1/jquery-ui.js"></script>
+
     <script src="fc.js"></script>
 </head>
 <body>
    
 <div class="bg-image img1">
 
-<div id="chat" draggable="true">
-<div id="chatheader">C:\</div>
-<div class="chat">
-   
-   <div class="chat__inner">
-      
+   <div id="chat" draggable="true">
+      <div id="chatheader">C:\</div>
+      <div class="chat" id="chatWin"></div>
+      <div class="chatInput">
+      <form action=".">
 
-      <div class="chat__message  chat__message_A" style="--timeline: 1s;">
-         <div class="chat__content">
-            <p>Hello, my name is Jane.<br />
-               How can I help you?</p>   
-         </div>
-      </div>
+         <input type="submit">
+         <input type="text">
 
-
-      <div class="chat__message chat__message_B" style="--timeline: 3s;">
-         <div class="chat__content">
-            <p>Hi Jane, I'm John Doe. <br />
-               I need to know my current account balance</p>   
-         </div>
-      </div>
-
-      <div class="chat__message chat__message_A" style="--timeline: 8s;">
-         <div class="chat__content">
-            <p>Sure, let me check...</p>   
-         </div>
-      </div> 
-
-      <div class="chat__message chat__message_A" style="--timeline: 12s;">
-         <div class="chat__content">
-            <p>Mr.Doe, your current balance is 12,345.67USD</p>   
-         </div>
-      </div>
-
-       <div class="chat__message chat__message_B" style="--timeline: 16s;">
-         <div class="chat__content">
-            <p>Thank you. Could you also check if I've recently received a payment
-            from abc corp.?</p>   
-         </div>
-      </div>
-      
-      <div class="chat__message chat__message_A" style="--timeline: 21s;">
-         <div class="chat__content">
-            <p>Yes sir, a payment for 250,00 USD was accounted on March, 3rd.</p>   
-         </div>
-      </div>
-
-       <div class="chat__message chat__message_B" style="--timeline: 25s;">
-         <div class="chat__content">
-            <p>Ok, thank you very much.</p>   
-         </div>
-      </div>
-      
-       <div class="chat__message chat__message_A" style="--timeline: 28s;">
-         <div class="chat__content">
-            <p>Have a nice day!</p>   
-         </div>
-      </div>
-
-      <div class="chat__message chat__message_A" style="--timeline: 34s;">
-         <div class="chat__content">
-            <p>Have a nice day!</p>   
-         </div>
-      </div>
-
-      <div class="chat__message chat__message_A" style="--timeline: 38s;">
-         <div class="chat__content">
-            <p>Have a nice day!</p>   
-         </div>
-      </div>
-      
+         <button>Button</button>
+       </form>
+       </div> 
    </div>
 </div>
-</div>
-</div>
-<script src="https://code.jquery.com/jquery-3.6.0.js"></script>
-<script src="https://code.jquery.com/ui/1.13.1/jquery-ui.js"></script>
+
+
 <script>
 
    $( function() {
