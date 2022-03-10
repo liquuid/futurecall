@@ -112,8 +112,9 @@ h1 {
 code {
   display: inline-block;
   padding: .35rem;
-  color: yellowgreen;no-
-  background: #f6f6f6; }
+  color: yellowgreen;
+  background: #f6f6f6; 
+}
 
 
 
@@ -127,5 +128,27 @@ code {
   background-size: 100% 100%;
 }
 
-.img1 { background-image: url("assets/phaser3/Fofocas da Manha.jpg"); 
+.img1 { 
+  background-image: url("assets/phaser3/Fofocas da Manha.jpg"); 
+  background-size: cover;
+}
+
+.chatInput {
+  background-color: #aaa;
+  padding: 30px 20px;
+}
+
+#inputText {
+  font-size: 32px;
+  background-color: #aaa;
+  border-width:0px;
+  border:none;
+  -webkit-appearance: none;
+  width: 60% ;
+
+
+}
+
+#enviar {
+  font-size: 32px;
 }
