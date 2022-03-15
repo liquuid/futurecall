@@ -68,9 +68,9 @@ var dialogos_alternativos = [
 
 var dialogos_zapeden = [
     ">> atualizar para o novo Zap Éden 2 <<",
-        ">> você não vai se arrepender <<",
-        ">> sim, você! <<",
-        ">> clique aqui e atualize <<"
+    ">> você não vai se arrepender <<",
+    ">> sim, você! <<",
+    ">> clique aqui e atualize <<"
 ]
 
 var dialogos_magraluz = [
@@ -140,6 +140,7 @@ function frase(text, time, quemfala) {
 }
 
 window.onload = function(){
+    magraluz = new Magraluz(); 
 
     $('#inputText').prop( "disabled", true );
     $('#enviar').prop( "disabled", true );
