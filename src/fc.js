@@ -141,7 +141,13 @@ function frase(text, time, quemfala) {
 
 window.onload = function(){
     magraluz = new Magraluz(); 
+    setTimeout( function () { $('.banner').show() }  , 1000);
 
+    $('.banner').click( function () {
+      $(".banner").hide();
+      $( "#chat" ).show();
+    });
+    
     $('#inputText').prop( "disabled", true );
     $('#enviar').prop( "disabled", true );
 
