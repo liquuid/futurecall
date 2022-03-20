@@ -130,8 +130,9 @@ code {
 
 .img1 { 
   background-image: url("assets/phaser3/Fofocas da Manha.jpg"); 
-  background-size: cover;
-  z-index: 200;
+  background-size: cover; 
+  z-index: -200;
+  display: block;
 }
 
 .chatInput {
@@ -166,4 +167,13 @@ code {
 
 #slideshow {
   position: fixed;
+}
+
+#pin {
+  display: block;
+  /*background-color: #00d201;*/
+  padding: 60px;
+  width: 165px;
+  position: relative;
+
 }

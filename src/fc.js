@@ -214,21 +214,41 @@ window.onload = function(){
             $(".chat__inner").append(frase(dialogos[13], 85, "NPC"));
             $(".chat__inner").append(frase(dialogos[14], 105, "NPC"));
             $(".chat__inner").append(frase(dialogos[15], 125, "NPC"));
-            $(".chat__inner").append(frase("<div id=\"PinBut\">[ PIN ]</div>", 145, "NPC"));
-            $( "#PinBut" ).click(function () { console.log("tela2"); tela2() });
+            $(".chat__inner").append(frase("<div id=\"PinBut\">[ Link ]</div>", 145, "NPC"));
+            $( "#PinBut" ).click(function () { 
+              $(".img1").css("background-image", "url('assets/phaser3/map1.jpg')");
+              $("#pin").css("left", "1165px");
+              $("#pin").css("top", "1610px");
+              tela2() });
            
         }
     } );
 
+    /*function tela2(){
+      $(".chat__inner").append(frase(dialogos[16], 5, "NPC"));
+      $(".chat__inner").append(frase(dialogos[17], 25, "NPC"));
+      $(".chat__inner").append(frase(dialogos[18], 45, "NPC"));
+      $(".chat__inner").append(frase(dialogos[19], 55, "NPC"));
+      $(".chat__inner").append(frase(dialogos[20], 85, "NPC"));
+      $(".chat__inner").append(frase(dialogos[21], 105, "NPC"));
+      $(".chat__inner").append(frase(dialogos[22], 125, "NPC"));
+      $(".chat__inner").append(frase(dialogos[23], 145, "NPC"));
+      $(".chat__inner").append(frase("<div id=\"ImagemCli\">[ IMAGEM ]</div>", 145, "NPC"));
+      $( "#ImagemCli" ).click(function () { console.log("tela3"); tela3() });
+
+  };*/
+
     function tela2(){
+            $("#pin").click(function () { console.log('hahha')});
             $(".chat__inner").append(frase(dialogos[16], 5, "NPC"));
             $(".chat__inner").append(frase(dialogos[17], 25, "NPC"));
-            $(".chat__inner").append(frase(dialogos[18], 45, "NPC"));
+
+           /* $(".chat__inner").append(frase(dialogos[18], 45, "NPC"));
             $(".chat__inner").append(frase(dialogos[19], 55, "NPC"));
             $(".chat__inner").append(frase(dialogos[20], 85, "NPC"));
             $(".chat__inner").append(frase(dialogos[21], 105, "NPC"));
             $(".chat__inner").append(frase(dialogos[22], 125, "NPC"));
-            $(".chat__inner").append(frase(dialogos[23], 145, "NPC"));
+            $(".chat__inner").append(frase(dialogos[23], 145, "NPC"));*/
             $(".chat__inner").append(frase("<div id=\"ImagemCli\">[ IMAGEM ]</div>", 145, "NPC"));
             $( "#ImagemCli" ).click(function () { console.log("tela3"); tela3() });
 
