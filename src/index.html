@@ -16,8 +16,12 @@
 <body>
    
 <div class="bg-image img1">
-   <img id="pin" src="assets/phaser3/pin.png"/>
+  
+   <img id="telecentro" class="imagem" src="assets/phaser3/02.webp"/>
+   <img id="vila" class="imagem" src="assets/phaser3/01.webp"/>
+
    <img class="banner" src="assets/phaser3/notificacao.png"/>
+
    <img id="slideshow" width="50%" src=""/>
    <div id="chat" draggable="true">
       <div id="chatheader">C:\</div>
@@ -29,7 +33,17 @@
          </div> 
       </div>
    </div>
+
+   <img id="map3" class="imagem" src="assets/phaser3/map3.jpg"/>
+   <img id="map2" class="imagem" src="assets/phaser3/map2.jpg"/>
+   <img id="map1" class="imagem" src="assets/phaser3/map1.jpg"/>
+   <img id="blank" class="imagem" src="assets/phaser3/blank.webp"/>
+   <img id="shared1" class="imagem" width="800" src="assets/phaser3/shared1.png"/>
+   <img id="pin" class="imagem" src="assets/phaser3/pin.png"/>
+
+
 </div>
+
 
 
 <script>
@@ -38,6 +52,16 @@
       $( "#chat" ).draggable();
       $( "#chat" ).hide();
       $('.banner').hide();
+      $("#pin").hide();
+      $("#vila").hide();
+      $("#map1").hide();
+      $("#map2").hide();
+      $("#map3").hide();
+      $("#blank").hide();
+      $("#shared1").hide();
+      $("#shared1").css("top", "310px");
+      $("#shared1").css("left", "565px");
+      $("#telecentro").hide();
     } );
 
    

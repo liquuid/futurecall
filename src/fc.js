@@ -26,7 +26,7 @@ var dialogos = [
     "um telecentro",
     "era daí que estavam tentando mudar as coisas",
     "consegue me mostrar a frente desse lugar?",
-    "valeu grandão, [pessoa]",
+    "valeu grandão, ",
     "é o que eu procurava",
     "se é que voltei ao tempo certo...",
     "de que ano você fala?",
@@ -156,13 +156,13 @@ window.onload = function(){
     $("#chatWin").append(div);
 
 
-    $(".chat__inner").append(frase(dialogos[0], 21, "NPC"));
-    $(".chat__inner").append(frase(dialogos[1], 52, "NPC"));
-    $(".chat__inner").append(frase(dialogos[2], 96, "NPC"));
-    $(".chat__inner").append(frase(dialogos[3], 115, "NPC"));
-    $(".chat__inner").append(frase(dialogos[4], 185, "NPC"));
-    $(".chat__inner").append(frase(dialogos[5], 205, "NPC"));
-    $(".chat__inner").append(frase(dialogos[6], 215, "NPC"));
+    $(".chat__inner").append(frase(dialogos[0], 1, "NPC"));
+    $(".chat__inner").append(frase(dialogos[1], 20, "NPC"));
+    $(".chat__inner").append(frase(dialogos[2], 40, "NPC"));
+    $(".chat__inner").append(frase(dialogos[3], 60, "NPC"));
+    $(".chat__inner").append(frase(dialogos[4], 85, "NPC"));
+    $(".chat__inner").append(frase(dialogos[5], 105, "NPC"));
+    $(".chat__inner").append(frase(dialogos[6], 115, "NPC"));
     
     $('#inputText').prop( "disabled", false );
     $('#enviar').prop( "disabled", false );
@@ -180,7 +180,7 @@ window.onload = function(){
         $(".chat__inner").append(frase(dialogos[8], 35, "NPC"));
 
 
-        $(".chat__inner").append(frase("<div id=\"RQuem\">Quem é você?</div> <br><div id=\"RQuet\">Que tipo de ajuda?</div>", 35, "player"));
+        $(".chat__inner").append(frase("<div id=\"RQuem\">Quem é você?</div> <br><div id=\"RQuet\">Que tipo de ajuda?</div>", 45, "player"));
         
         var origQuem = $( "#RQuem" ).html();
         $( "#RQuem" ).hover(
@@ -216,48 +216,70 @@ window.onload = function(){
             $(".chat__inner").append(frase(dialogos[15], 125, "NPC"));
             $(".chat__inner").append(frase("<div id=\"PinBut\">[ Link ]</div>", 145, "NPC"));
             $( "#PinBut" ).click(function () { 
-              $(".img1").css("background-image", "url('assets/phaser3/map1.jpg')");
+              $("#map1").show();
               $("#pin").css("left", "1165px");
-              $("#pin").css("top", "1610px");
+              $("#pin").css("top", "810px");
+
+              $("#pin").show();
               tela2() });
            
         }
     } );
 
-    /*function tela2(){
-      $(".chat__inner").append(frase(dialogos[16], 5, "NPC"));
-      $(".chat__inner").append(frase(dialogos[17], 25, "NPC"));
-      $(".chat__inner").append(frase(dialogos[18], 45, "NPC"));
-      $(".chat__inner").append(frase(dialogos[19], 55, "NPC"));
-      $(".chat__inner").append(frase(dialogos[20], 85, "NPC"));
-      $(".chat__inner").append(frase(dialogos[21], 105, "NPC"));
-      $(".chat__inner").append(frase(dialogos[22], 125, "NPC"));
-      $(".chat__inner").append(frase(dialogos[23], 145, "NPC"));
-      $(".chat__inner").append(frase("<div id=\"ImagemCli\">[ IMAGEM ]</div>", 145, "NPC"));
-      $( "#ImagemCli" ).click(function () { console.log("tela3"); tela3() });
 
-  };*/
 
     function tela2(){
-            $("#pin").click(function () { console.log('hahha')});
+
             $(".chat__inner").append(frase(dialogos[16], 5, "NPC"));
             $(".chat__inner").append(frase(dialogos[17], 25, "NPC"));
+            $("#pin").click(function () { 
+              $("#map1").hide();
+              $("#map2").show();
+              $("#pin").css("top", "610px");
+              
+              tela2_1(); 
+            });
 
-           /* $(".chat__inner").append(frase(dialogos[18], 45, "NPC"));
-            $(".chat__inner").append(frase(dialogos[19], 55, "NPC"));
-            $(".chat__inner").append(frase(dialogos[20], 85, "NPC"));
-            $(".chat__inner").append(frase(dialogos[21], 105, "NPC"));
-            $(".chat__inner").append(frase(dialogos[22], 125, "NPC"));
-            $(".chat__inner").append(frase(dialogos[23], 145, "NPC"));*/
-            $(".chat__inner").append(frase("<div id=\"ImagemCli\">[ IMAGEM ]</div>", 145, "NPC"));
-            $( "#ImagemCli" ).click(function () { console.log("tela3"); tela3() });
+    };
+
+    function tela2_1(){
+      console.log("tela2_1"); 
+      $(".chat__inner").append(frase(dialogos[18], 5, "NPC"));
+      $(".chat__inner").append(frase(dialogos[19], 25, "NPC"));
+      $( "#pin" ).unbind("click");
+      $( "#pin" ).click(function () { 
+       
+        $("#map2").hide();
+        $("#vila").show();
+        $("#pin").css("top", "510px");
+        $("#pin").css("left", "565px");
+        tela2_2() 
+      });
+
+    };
+
+    function tela2_2(){
+      console.log("tela2_2"); 
+      $(".chat__inner").append(frase(dialogos[20], 5, "NPC"));
+      $(".chat__inner").append(frase(dialogos[21], 25, "NPC"));
+      $(".chat__inner").append(frase(dialogos[22], 45, "NPC"));
+      $(".chat__inner").append(frase(dialogos[23], 65, "NPC"));
+      $(".chat__inner").append(frase("<div id=\"ImagemCli\">[ IMAGEM ]</div>", 85, "NPC"));
+      $( "#pin" ).unbind("click");
+      $( "#pin" ).click(function () { 
+        $("#vila").hide();
+        $("#pin").hide();
+        $("#telecentro").show();
+        console.log("tela3"); tela3();
+      });
 
     };
 
     function tela3(){
+        $( "#pin" ).unbind("click");
         $(".chat__inner").append(frase("* Print *", 5, "NPC"));
-        $(".chat__inner").append(frase("* Figurinha *", 25, "NPC"));
-        $(".chat__inner").append(frase(dialogos[24], 45, "NPC"));
+        $(".chat__inner").append(frase("👍👍👍", 25, "NPC"));
+        $(".chat__inner").append(frase(dialogos[24]+ nome, 45, "NPC"));
         $(".chat__inner").append(frase(dialogos[25], 55, "NPC"));
         $(".chat__inner").append(frase(dialogos[26], 85, "NPC"));
         $(".chat__inner").append(frase(dialogos[27], 105, "NPC"));
@@ -301,17 +323,7 @@ window.onload = function(){
 };
     function tela3_1(){
         $(".chat__inner").append(frase(dialogos[28], 5, "NPC"));
-        $(".chat__inner").append(frase("<div id=\"RMeme\">[ meme atual ]</div> <br><div id=\"RNaoP\">Não posso</div>", 10, "player"));
-        var origMeme = $( "#RMeme" ).html();
-        
-        $( "#RMeme" ).hover(
-            
-            function() {
-              $( this ).html( "> " + $( this ).html() );
-            }, function() {
-              $( this ).html(origMeme);
-            }
-        );
+        $(".chat__inner").append(frase("<div id=\"RMeme\"><img src=\"assets/phaser3/meme.jpeg\"/></div> <br><div id=\"RNaoP\">Não posso</div>", 10, "player"));
 
         var origNaoP = $( "#RNaoP" ).html();
         $( "#RNaoP" ).hover(
@@ -330,21 +342,46 @@ window.onload = function(){
 
     function tela3_2(){
         $(".chat__inner").append(frase(dialogos[29], 5, "NPC"));
-        $(".chat__inner").append(frase(dialogos[30], 15, "NPC"));
-        $(".chat__inner").append(frase(dialogos[31], 25, "NPC"));
-        $(".chat__inner").append(frase(dialogos[32], 35, "NPC"));
-        $(".chat__inner").append(frase(dialogos[33], 45, "NPC"));
-        $(".chat__inner").append(frase(dialogos[34], 55, "NPC"));
-        $(".chat__inner").append(frase(dialogos[35], 65, "NPC"));
-        $(".chat__inner").append(frase(dialogos[36], 75, "NPC"));
-        $(".chat__inner").append(frase(dialogos[37], 85, "NPC"));
-        $(".chat__inner").append(frase(dialogos[38], 95, "NPC"));
-        $(".chat__inner").append(frase(dialogos[39], 105, "NPC"));
-        $(".chat__inner").append(frase(dialogos[40], 115, "NPC"));
-        $(".chat__inner").append(frase(dialogos[41], 125, "NPC"));
- 
-        $(".chat__inner").append(frase("<div id=\"RFoiM\">😅 foi mal</div> <br><div id=\"RComoE\">😤 como eu ia saber??</div>", 135, "player"));
 
+        setTimeout(function() { 
+          $("#telecentro").hide();
+          $("#shared1").show();
+          $(".img1").css("background-image", "url()"); 
+        } 
+        , 25000 * textSpeed);
+
+        $(".chat__inner").append(frase(dialogos[30], 25, "NPC"));
+        $(".chat__inner").append(frase(dialogos[31], 85, "NPC"));
+        $(".chat__inner").append(frase(dialogos[32], 105, "NPC"));
+        $(".chat__inner").append(frase(dialogos[33], 125, "NPC"));
+        $(".chat__inner").append(frase(dialogos[34], 145, "NPC"));
+        $(".chat__inner").append(frase(dialogos[35], 165, "NPC"));
+
+        setTimeout(function() { 
+          $("#chat").hide();
+          $("#shared1").hide();
+          $("#blank").show();
+        } 
+        , 185000 * textSpeed);
+
+
+        setTimeout(function() { 
+          $(".chat__inner").html("")
+          $("#chat").show();
+          tela3_2_reset();
+        } 
+        , 205000 * textSpeed);
+    }
+    function tela3_2_reset(){    
+        $(".chat__inner").append(frase(dialogos[36], 5, "NPC"));
+        $(".chat__inner").append(frase(dialogos[37], 25, "NPC"));
+        $(".chat__inner").append(frase(dialogos[38], 45, "NPC"));
+        $(".chat__inner").append(frase(dialogos[39], 65, "NPC"));
+        $(".chat__inner").append(frase(dialogos[40], 85, "NPC"));
+        $(".chat__inner").append(frase(dialogos[41], 105, "NPC"));
+ 
+        $(".chat__inner").append(frase("<div id=\"RFoiM\">😅 foi mal</div> <br><div id=\"RComoE\">😤 como eu ia saber??</div>", 125, "player"));
+        
         var origMeme = $( "#RFoiM" ).html();
         $( "#RFoiM" ).hover(
             
@@ -370,12 +407,12 @@ window.onload = function(){
     }
     function tela3_3(){
         $(".chat__inner").append(frase(dialogos[41], 5, "NPC"));
-        $(".chat__inner").append(frase(dialogos[42], 15, "NPC"));
-        $(".chat__inner").append(frase(dialogos[43], 25, "NPC"));
-        $(".chat__inner").append(frase(dialogos[44], 35, "NPC"));
-        $(".chat__inner").append(frase(dialogos[45], 5, "NPC"));
+        $(".chat__inner").append(frase(dialogos[42], 25, "NPC"));
+        $(".chat__inner").append(frase(dialogos[43], 45, "NPC"));
+        $(".chat__inner").append(frase(dialogos[44], 65, "NPC"));
+        $(".chat__inner").append(frase(dialogos[45], 85, "NPC"));
  
-        $(".chat__inner").append(frase("<div id=\"RComoPosso\">como posso te ajudar?</div> <br><div id=\"RMeExpli\">me explica logo o que tá acontecendo!</div>", 40, "player"));
+        $(".chat__inner").append(frase("<div id=\"RComoPosso\">como posso te ajudar?</div> <br><div id=\"RMeExpli\">me explica logo o que tá acontecendo!</div>", 105, "player"));
 
         var origComoPosso = $( "#RComoPosso" ).html();
         $( "#RComoPosso" ).hover(
@@ -403,7 +440,7 @@ window.onload = function(){
     }
     function tela4(){
         
-        $(".chat__inner").append(frase(dialogos[46], 15, "NPC"));
+        $(".chat__inner").append(frase(dialogos[46], 5, "NPC"));
         $(".chat__inner").append(frase(dialogos[47], 25, "NPC"));
         $(".chat__inner").append(frase(dialogos[48], 35, "NPC"));
     };
