@@ -171,8 +171,13 @@ code {
 }
 
 #pin {
-z-index: 10;
+z-index: 9;
 
+}
+
+#arrow {
+  z-index: 9;
+  
 }
 
 .imagem { 

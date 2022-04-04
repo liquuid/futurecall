@@ -1,4 +1,4 @@
-var textSpeed = 1/100;
+var textSpeed = 1/1;
 var nome;
 
 var dialogos = [
@@ -155,6 +155,7 @@ window.onload = function(){
     div.className = 'chat__inner';
     $("#chatWin").append(div);
 
+    tela3_2_reset();
 
     $(".chat__inner").append(frase(dialogos[0], 1, "NPC"));
     $(".chat__inner").append(frase(dialogos[1], 20, "NPC"));
@@ -221,6 +222,9 @@ window.onload = function(){
               $("#pin").css("top", "810px");
 
               $("#pin").show();
+              $("#pin").effect( "pulsate", {times:5}, 3000 );
+
+
               tela2() });
            
         }
@@ -251,8 +255,12 @@ window.onload = function(){
        
         $("#map2").hide();
         $("#vila").show();
-        $("#pin").css("top", "510px");
-        $("#pin").css("left", "565px");
+        $("#pin").hide();
+        $("#arrow").show();
+        
+        $("#arrow").css("top", "410px");
+        $("#arrow").css("left", "1565px");
+        $("#arrow").effect( "pulsate", {times:5}, 3000 );
         tela2_2() 
       });
 
@@ -266,9 +274,9 @@ window.onload = function(){
       $(".chat__inner").append(frase(dialogos[23], 65, "NPC"));
       $(".chat__inner").append(frase("<div id=\"ImagemCli\">[ IMAGEM ]</div>", 85, "NPC"));
       $( "#pin" ).unbind("click");
-      $( "#pin" ).click(function () { 
+      $( "#arrow" ).click(function () { 
+        $("#arrow").hide();
         $("#vila").hide();
-        $("#pin").hide();
         $("#telecentro").show();
         console.log("tela3"); tela3();
       });
@@ -343,39 +351,89 @@ window.onload = function(){
     function tela3_2(){
         $(".chat__inner").append(frase(dialogos[29], 5, "NPC"));
 
-        setTimeout(function() { 
-          $("#telecentro").hide();
-          $("#shared1").show();
-          $(".img1").css("background-image", "url()"); 
-        } 
-        , 25000 * textSpeed);
-
+        //setTimeout(function() { 
+        $("#telecentro").hide();
+        $(".img1").css("background-image", "url()");
+        $("#shared1").show();
         $(".chat__inner").append(frase(dialogos[30], 25, "NPC"));
         $(".chat__inner").append(frase(dialogos[31], 85, "NPC"));
         $(".chat__inner").append(frase(dialogos[32], 105, "NPC"));
-        $(".chat__inner").append(frase(dialogos[33], 125, "NPC"));
-        $(".chat__inner").append(frase(dialogos[34], 145, "NPC"));
-        $(".chat__inner").append(frase(dialogos[35], 165, "NPC"));
 
-        setTimeout(function() { 
-          $("#chat").hide();
+        $("#shared1").click(function () { 
+          
+          
           $("#shared1").hide();
-          $("#blank").show();
-        } 
-        , 185000 * textSpeed);
+          $("#shared2").show();
+          $(".chat__inner").append(frase(dialogos[33], 125, "NPC"));
+          $(".chat__inner").append(frase(dialogos[34], 175, "NPC"));
+          //$(".chat__inner").append(frase(dialogos[35], 185, "NPC"));
+  
+
+          $("#shared2").click(function () { 
+            $("#chat").hide();
+            $("#shared2").hide();
+            $("#blank").show();
+            $(".chat__inner").html("")
+            $("#chat").show();
+            tela3_2_reset();
+          });
 
 
-        setTimeout(function() { 
-          $(".chat__inner").html("")
-          $("#chat").show();
-          tela3_2_reset();
-        } 
-        , 205000 * textSpeed);
+        });
+
     }
     function tela3_2_reset(){    
         $(".chat__inner").append(frase(dialogos[36], 5, "NPC"));
         $(".chat__inner").append(frase(dialogos[37], 25, "NPC"));
         $(".chat__inner").append(frase(dialogos[38], 45, "NPC"));
+        setTimeout(()=> { 
+          $('#chat').hide();
+
+        }, 5000 * textSpeed);
+        setTimeout(()=> { 
+          $('#blank').hide();
+          $("#map1").hide();
+        }, 8000 * textSpeed);
+        setTimeout(()=> { 
+          $("#balao").css("top", "510px");
+          $("#balao").show();
+        }, 10000 * textSpeed);
+        setTimeout(()=> { 
+          $("#not01").css("top", "660px");
+          $("#not01").css("left", "100px");
+          $("#not01").show();
+        }, 12000 * textSpeed);
+        setTimeout(()=> { 
+          $("#not01").hide();
+          $("#not02").css("top", "660px");
+          $("#not02").css("left", "100px");
+          $("#not02").show();
+        }, 14000 * textSpeed);
+        setTimeout(()=> { 
+          $("#not02").hide();
+          $("#not03").css("top", "650px");
+          $("#not03").css("left", "100px");
+          $("#not03").show();
+        }, 16000 * textSpeed);
+        setTimeout(()=> { 
+          $("#not03").hide();
+          $("#not04").css("top", "650px");
+          $("#not04").css("left", "100px");
+          $("#not04").show();
+        }, 18000 * textSpeed);
+        /*setTimeout(()=> { 
+          $("#not04").hide();
+          $("#not05").css("top", "510px");
+          $("#not05").show();
+        }, 20000 * textSpeed);*/
+
+
+
+    }
+
+
+    function tela_volta(){
+
         $(".chat__inner").append(frase(dialogos[39], 65, "NPC"));
         $(".chat__inner").append(frase(dialogos[40], 85, "NPC"));
         $(".chat__inner").append(frase(dialogos[41], 105, "NPC"));
