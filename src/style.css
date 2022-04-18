@@ -122,6 +122,9 @@ code {
 .bg-image {
   /* Full height */
   height: 300vh;
+  background-color: #afa;
+  background: linear-gradient(124deg, #ff2400, #e81d1d, #e8b71d, #e3e81d, #1de840, #1ddde8, #2b1de8, #dd00f3, #dd00f3);
+
 
   /* Center and scale the image nicely 
   background-position: center;
@@ -134,6 +137,7 @@ code {
   background-size: cover; 
   z-index: -200;
   display: block;
+  
 }
 
 .chatInput {
@@ -185,4 +189,41 @@ z-index: 9;
   display:block;
   margin: 0 auto;
   z-index: 0;
+}
+
+.wrapper { 
+  height: 100%;
+  width: 100%;
+  left:0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  position: absolute;
+background: linear-gradient(124deg, #f7aa9e, #f86666, #e8b71d, #feffb3, #96ffa8, #97faff, #9b95f7, #f8a8ff, #f19bf8);
+background-size: 1800% 1800%;
+
+-webkit-animation: rainbow 30s ease infinite;
+-z-animation: rainbow 30s ease infinite;
+-o-animation: rainbow 30s ease infinite;
+  animation: rainbow 30s ease infinite;}
+
+@-webkit-keyframes rainbow {
+    0%{background-position:0% 82%}
+    50%{background-position:100% 19%}
+    100%{background-position:0% 82%}
+}
+@-moz-keyframes rainbow {
+    0%{background-position:0% 82%}
+    50%{background-position:100% 19%}
+    100%{background-position:0% 82%}
+}
+@-o-keyframes rainbow {
+    0%{background-position:0% 82%}
+    50%{background-position:100% 19%}
+    100%{background-position:0% 82%}
+}
+@keyframes rainbow { 
+    0%{background-position:0% 82%}
+    50%{background-position:100% 19%}
+    100%{background-position:0% 82%}
 }

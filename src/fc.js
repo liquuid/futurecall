@@ -1,4 +1,4 @@
-var textSpeed = 1/1;
+var textSpeed = 1/10;
 var nome;
 
 var dialogos = [
@@ -420,12 +420,35 @@ window.onload = function(){
           $("#not04").css("top", "650px");
           $("#not04").css("left", "100px");
           $("#not04").show();
+          $("#not04").click(() => {
+            $(".img1").css("background-image", "url()");
+            $(".wrapper").show();
+            $(".bg-image").css("height", "0");
+            $("#not04").hide();
+            $("#balao").hide();
+            setTimeout(()=> { 
+              $("#not05").css("top", "0px");
+              $("#not05").css("left", "700px");
+              $("#not05").fadeIn();
+              $("#not05").animate({"top": "600px"});
+              
+            }, 20000 * textSpeed);
+            setTimeout(()=> { 
+              $("#not05").fadeOut();
+              $("#not06").css("top", "0px");
+              $("#not06").css("left", "700px");
+              $("#not06").fadeIn();
+              $("#not06").animate({"top": "600px"});
+              
+            }, 120000 * textSpeed);
+            setTimeout(()=> { 
+              tela_volta();
+              
+            }, 242000 * textSpeed);
+
+            });
         }, 18000 * textSpeed);
-        /*setTimeout(()=> { 
-          $("#not04").hide();
-          $("#not05").css("top", "510px");
-          $("#not05").show();
-        }, 20000 * textSpeed);*/
+
 
 
 
@@ -464,7 +487,7 @@ window.onload = function(){
         $( "#RComoE" ).click(function () { tela3_3() });
     }
     function tela3_3(){
-        $(".chat__inner").append(frase(dialogos[41], 5, "NPC"));
+        //$(".chat__inner").append(frase(dialogos[41], 5, "NPC"));
         $(".chat__inner").append(frase(dialogos[42], 25, "NPC"));
         $(".chat__inner").append(frase(dialogos[43], 45, "NPC"));
         $(".chat__inner").append(frase(dialogos[44], 65, "NPC"));
