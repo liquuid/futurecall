@@ -22,11 +22,40 @@
     font: 32px "ModernDOS9x16";
 }
 
+#chatMaga {
+  width: 970px;
+  margin-left: 30%;
+  margin-top: 600px;
+  cursor: move;
+  position: fixed;
+  z-index: 2;
+}
+.chatMaga {
+  display: flex;
+  
+  height: 180px;
+  /*background-color: #fff;*/
+  flex-direction: column-reverse;
+  padding: .75rem;
+  overflow: hidden;
+  border: 1px #9bc;
+  font: 32px "ModernDOS9x16";
+  color: #000000;
+  position: relative; 
+}
+.chatMaga__content {
+  flex: 0 1 auto;
+  padding: 1rem;
+  margin: 0 .5rem;
+  background: #fff;
+  border-radius: var(--radius); 
+}
+
 #chat {
-width: 470px;
-cursor: move;
-position: fixed;
-z-index: 2;
+  width: 470px;
+  cursor: move;
+  position: fixed;
+  z-index: 2;
 }
 .chat {
   display: flex;
@@ -39,11 +68,12 @@ z-index: 2;
   border: 1px #9bc;
   font: 32px "ModernDOS9x16";
   color: #00d201;
-  position: relative; }
-  .chat__inner {
+  position: relative; 
+}
+.chat__inner {
     display: flex;
     flex-direction: column; }
-  .chat::before {
+.chat::before {
     content: "";
     position: absolute;
     z-index: 1;
@@ -61,7 +91,8 @@ z-index: 2;
   padding: 1rem;
   margin: 0 .5rem;
   background: var(--bgcolor);
-  border-radius: var(--radius); }
+  border-radius: var(--radius); 
+}
 
 .chat__message {
   width: 85%;
@@ -75,7 +106,8 @@ z-index: 2;
   animation: message .15s ease-out 0s forwards;
   animation-delay: var(--timeline);
   --bgcolor: #111;
-  --radius: 12px 12px 12px 0; }
+  --radius: 12px 12px 12px 0; 
+}
   .chat__message_B {
     flex-direction: row-reverse;
     text-align: right;
@@ -172,6 +204,9 @@ code {
 
 #slideshow {
   position: fixed;
+  bottom: 0px;
+  left: -100px;
+  z-index: 10;
 }
 
 #pin {
@@ -227,3 +262,4 @@ background-size: 1800% 1800%;
     50%{background-position:100% 19%}
     100%{background-position:0% 82%}
 }
+

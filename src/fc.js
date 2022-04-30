@@ -1,4 +1,4 @@
-var textSpeed = 1/10;
+var textSpeed = 1/100;
 var nome;
 
 var dialogos = [
@@ -139,9 +139,28 @@ function frase(text, time, quemfala) {
                     </div>");
 }
 
+function fraseM(text, time, quemfala) {
+  let speaker;
+  if (quemfala === "player" ){
+      speaker = "chat__message_B"
+  } else {
+      speaker = "chat__message_A"
+  }
+  if (!time  || time === 0) {
+      time = 0;
+  } 
+  
+  return ("      <div class=\"chat__message " +speaker+"\" style=\"--timeline: " + time*textSpeed + "s;\">\
+                      <div class=\"chatMaga__content\">\
+                      <p>" + text + "</p>   \
+                      </div>\
+                  </div>");
+}
+
 window.onload = function(){
     magraluz = new Magraluz(); 
-    setTimeout( function () { $('.banner').show() }  , 1000);
+/*    setTimeout( function () { $('.banner').show() }  , 1000);
+    
 
     $('.banner').click( function () {
       $(".banner").hide();
@@ -150,12 +169,17 @@ window.onload = function(){
     
     $('#inputText').prop( "disabled", true );
     $('#enviar').prop( "disabled", true );
-
+*/
+    tela3_2_reset()
+    
     const div = document.createElement('div');
-    div.className = 'chat__inner';
-    $("#chatWin").append(div);
+    const divM = document.createElement('div');
 
-    tela3_2_reset();
+    div.className = 'chat__inner';
+    divM.className = 'chatM__inner';
+
+    $("#chatWin").append(div);
+    $("#chatWinMaga").append(divM);
 
     $(".chat__inner").append(frase(dialogos[0], 1, "NPC"));
     $(".chat__inner").append(frase(dialogos[1], 20, "NPC"));
@@ -375,9 +399,13 @@ window.onload = function(){
             $("#blank").show();
             $(".chat__inner").html("")
             $("#chat").show();
-            tela3_2_reset();
-          });
 
+            setTimeout(()=> { 
+              tela3_2_reset();
+    
+            }, 10000 * textSpeed);
+            
+          });
 
         });
 
@@ -389,32 +417,32 @@ window.onload = function(){
         setTimeout(()=> { 
           $('#chat').hide();
 
-        }, 5000 * textSpeed);
+        }, 100000 * textSpeed);
         setTimeout(()=> { 
           $('#blank').hide();
           $("#map1").hide();
-        }, 8000 * textSpeed);
+        }, 130000 * textSpeed);
         setTimeout(()=> { 
           $("#balao").css("top", "510px");
           $("#balao").show();
-        }, 10000 * textSpeed);
+        }, 150000 * textSpeed);
         setTimeout(()=> { 
           $("#not01").css("top", "660px");
           $("#not01").css("left", "100px");
           $("#not01").show();
-        }, 12000 * textSpeed);
+        }, 170000 * textSpeed);
         setTimeout(()=> { 
           $("#not01").hide();
           $("#not02").css("top", "660px");
           $("#not02").css("left", "100px");
           $("#not02").show();
-        }, 14000 * textSpeed);
+        }, 190000 * textSpeed);
         setTimeout(()=> { 
           $("#not02").hide();
           $("#not03").css("top", "650px");
           $("#not03").css("left", "100px");
           $("#not03").show();
-        }, 16000 * textSpeed);
+        }, 210000 * textSpeed);
         setTimeout(()=> { 
           $("#not03").hide();
           $("#not04").css("top", "650px");
@@ -432,60 +460,58 @@ window.onload = function(){
               $("#not05").fadeIn();
               $("#not05").animate({"top": "600px"});
               
-            }, 20000 * textSpeed);
+            }, 25000 * textSpeed);
             setTimeout(()=> { 
               $("#not05").fadeOut();
               $("#not06").css("top", "0px");
               $("#not06").css("left", "700px");
               $("#not06").fadeIn();
               $("#not06").animate({"top": "600px"});
+
+              $("#chat").show();
+              $(".chat__inner").html("")
+              $(".chat__inner").append(frase(dialogos[39], 65, "NPC"));
+              $(".chat__inner").append(frase(dialogos[40], 85, "NPC"));
+              $(".chat__inner").append(frase(dialogos[41], 105, "NPC"));
+      
+              $(".chat__inner").append(frase("<div id=\"RFoiM\">😅 foi mal</div> <br><div id=\"RComoE\">😤 como eu ia saber??</div>", 125, "player"));
               
-            }, 120000 * textSpeed);
-            setTimeout(()=> { 
-              tela_volta();
-              
-            }, 242000 * textSpeed);
+              var origMeme = $( "#RFoiM" ).html();
+              $( "#RFoiM" ).hover(
+                  
+                  function() {
+                    $( this ).html( "> " + $( this ).html() );
+                  }, function() {
+                    $( this ).html(origMeme);
+                  }
+              );
 
-            });
-        }, 18000 * textSpeed);
+              var origComoE = $( "#RComoE" ).html();
+              $( "#RComoE" ).hover(
+                  
+                  function() {
+                    $( this ).html( "> " + $( this ).html() );
+                  }, function() {
+                    $( this ).html(origComoE);
+                  }
+              );
+
+              $( "#RFoiM" ).click(function () { tela3_3() });
+              $( "#RComoE" ).click(function () { tela3_3() });
+          
+
+
+          }, 125000 * textSpeed);
+
+          });
+        }, 230000 * textSpeed);
 
 
 
 
-    }
+}
 
 
-    function tela_volta(){
-
-        $(".chat__inner").append(frase(dialogos[39], 65, "NPC"));
-        $(".chat__inner").append(frase(dialogos[40], 85, "NPC"));
-        $(".chat__inner").append(frase(dialogos[41], 105, "NPC"));
- 
-        $(".chat__inner").append(frase("<div id=\"RFoiM\">😅 foi mal</div> <br><div id=\"RComoE\">😤 como eu ia saber??</div>", 125, "player"));
-        
-        var origMeme = $( "#RFoiM" ).html();
-        $( "#RFoiM" ).hover(
-            
-            function() {
-              $( this ).html( "> " + $( this ).html() );
-            }, function() {
-              $( this ).html(origMeme);
-            }
-        );
-
-        var origComoE = $( "#RComoE" ).html();
-        $( "#RComoE" ).hover(
-            
-            function() {
-              $( this ).html( "> " + $( this ).html() );
-            }, function() {
-              $( this ).html(origComoE);
-            }
-        );
-
-        $( "#RFoiM" ).click(function () { tela3_3() });
-        $( "#RComoE" ).click(function () { tela3_3() });
-    }
     function tela3_3(){
         //$(".chat__inner").append(frase(dialogos[41], 5, "NPC"));
         $(".chat__inner").append(frase(dialogos[42], 25, "NPC"));
@@ -515,9 +541,19 @@ window.onload = function(){
             }
         );
 
-        $( "#RComoPosso" ).click(function () { tela4() });
-        $( "#RMeExpli" ).click(function () { tela4() });
+        $( "#RComoPosso" ).click(function () { magraLuztela() });
+        $( "#RMeExpli" ).click(function () { magraLuztela() });
         
+    }
+    function magraLuztela() {
+      $("#chat").hide();
+      $("#not06").hide();
+      magraluz.feliz();
+      $(".chatM__inner").append(fraseM(dialogos_magraluz[1], 20, "NPC"));
+      $(".chatM__inner").append(fraseM(dialogos_magraluz[2], 40, "NPC"));
+      $(".chatM__inner").append(fraseM(dialogos_magraluz[3], 60, "NPC"));
+      $(".chatM__inner").append(fraseM(dialogos_magraluz[4], 80, "NPC"));
+
     }
     function tela4(){
         
