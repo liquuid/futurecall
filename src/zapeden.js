@@ -19,7 +19,7 @@ class ZapEden {
         function changeImg(){
             
             if(images.length > imgIndex+1){
-                document.getElementById("slideshow").src = images[imgIndex].src;
+                document.getElementById("slideshowZ").src = images[imgIndex].src;
                 imgIndex++;
             } 
         }
@@ -48,7 +48,7 @@ class ZapEden {
         function changeImg(){
             
             if(images.length > imgIndex+1){
-                document.getElementById("slideshow").src = images[imgIndex].src;
+                document.getElementById("slideshowZ").src = images[imgIndex].src;
                 imgIndex++;
             } 
         }
@@ -89,7 +89,7 @@ class ZapEden {
         function changeImg(){
             
             if(images.length > imgIndex+1){
-                document.getElementById("slideshow").src = images[imgIndex].src;
+                document.getElementById("slideshowZ").src = images[imgIndex].src;
                 imgIndex++;
             } 
         }
@@ -117,7 +117,7 @@ class ZapEden {
         function changeImg(){
             
             if(images.length > imgIndex+1){
-                document.getElementById("slideshow").src = images[imgIndex].src;
+                document.getElementById("slideshowZ").src = images[imgIndex].src;
                 imgIndex++;
             } 
         }
@@ -144,7 +144,7 @@ class ZapEden {
         function changeImg(){
             
             if(images.length > imgIndex+1){
-                document.getElementById("slideshow").src = images[imgIndex].src;
+                document.getElementById("slideshowZ").src = images[imgIndex].src;
                 imgIndex++;
             } 
         }

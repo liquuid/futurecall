@@ -1,4 +1,4 @@
-var textSpeed = 1/100;
+var textSpeed = 1/10;
 var nome;
 
 var dialogos = [
@@ -140,6 +140,7 @@ function frase(text, time, quemfala) {
 }
 
 function fraseM(text, time, quemfala) {
+  
   let speaker;
   if (quemfala === "player" ){
       speaker = "chat__message_B"
@@ -157,9 +158,11 @@ function fraseM(text, time, quemfala) {
                   </div>");
 }
 
-window.onload = function(){
+window.onload = function game(){
     magraluz = new Magraluz(); 
-/*    setTimeout( function () { $('.banner').show() }  , 1000);
+    zapeden = new ZapEden();
+
+    setTimeout( function () { $('.banner').show() }  , 1000);
     
 
     $('.banner').click( function () {
@@ -169,8 +172,8 @@ window.onload = function(){
     
     $('#inputText').prop( "disabled", true );
     $('#enviar').prop( "disabled", true );
-*/
-    tela3_2_reset()
+
+
     
     const div = document.createElement('div');
     const divM = document.createElement('div');
@@ -211,9 +214,9 @@ window.onload = function(){
         $( "#RQuem" ).hover(
             
             function() {
-              $( this ).html( "> " + $( this ).html() );
+              $( this ).animate({zoom: '105%'}, "fast");
             }, function() {
-              $( this ).html(origQuem);
+              $( this ).animate({zoom: '100%'}, "fast");
             }
         );
 
@@ -221,9 +224,9 @@ window.onload = function(){
         $( "#RQuet" ).hover(
             
             function() {
-              $( this ).html( "> " + $( this ).html() );
+              $( this ).animate({zoom: '105%'}, "fast");
             }, function() {
-              $( this ).html(origQuet);
+              $( this ).animate({zoom: '100%'}, "fast");
             }
         );
 
@@ -321,9 +324,9 @@ window.onload = function(){
         $( "#R2022" ).hover(
             
             function() {
-              $( this ).html( "> " + $( this ).html() );
+              $( this ).animate({zoom: '105%'}, "fast");
             }, function() {
-              $( this ).html(orig2022);
+              $( this ).animate({zoom: '100%'}, "fast");
             }
         );
 
@@ -331,9 +334,9 @@ window.onload = function(){
         $( "#R2023" ).hover(
             
             function() {
-              $( this ).html( "> " + $( this ).html() );
+              $( this ).animate({zoom: '105%'}, "fast");
             }, function() {
-              $( this ).html(orig2023);
+              $( this ).animate({zoom: '100%'}, "fast");
             }
         );
 
@@ -341,9 +344,9 @@ window.onload = function(){
         $( "#R2024" ).hover(
             
             function() {
-              $( this ).html( "> " + $( this ).html() );
+              $( this ).animate({zoom: '105%'}, "fast");
             }, function() {
-              $( this ).html(orig2024);
+              $( this ).animate({zoom: '100%'}, "fast");
             }
         );
 
@@ -361,9 +364,9 @@ window.onload = function(){
         $( "#RNaoP" ).hover(
             
             function() {
-              $( this ).html( "> " + $( this ).html() );
+              $( this ).animate({zoom: '105%'}, "fast");
             }, function() {
-              $( this ).html(origNaoP);
+              $( this ).animate({zoom: '100%'}, "fast");
             }
         );
 
@@ -415,7 +418,7 @@ window.onload = function(){
         $(".chat__inner").append(frase(dialogos[37], 25, "NPC"));
         $(".chat__inner").append(frase(dialogos[38], 45, "NPC"));
         setTimeout(()=> { 
-          $('#chat').hide();
+          $('#chat').fadeOut(5000);
 
         }, 100000 * textSpeed);
         setTimeout(()=> { 
@@ -424,7 +427,7 @@ window.onload = function(){
         }, 130000 * textSpeed);
         setTimeout(()=> { 
           $("#balao").css("top", "510px");
-          $("#balao").show();
+          $("#balao").fadeIn();
         }, 150000 * textSpeed);
         setTimeout(()=> { 
           $("#not01").css("top", "660px");
@@ -453,7 +456,7 @@ window.onload = function(){
             $(".wrapper").show();
             $(".bg-image").css("height", "0");
             $("#not04").hide();
-            $("#balao").hide();
+            $("#balao").fadeOut(2000);
             setTimeout(()=> { 
               $("#not05").css("top", "0px");
               $("#not05").css("left", "700px");
@@ -480,9 +483,9 @@ window.onload = function(){
               $( "#RFoiM" ).hover(
                   
                   function() {
-                    $( this ).html( "> " + $( this ).html() );
+                    $( this ).animate({zoom: '105%'}, "fast");
                   }, function() {
-                    $( this ).html(origMeme);
+                    $( this ).animate({zoom: '100%'}, "fast");
                   }
               );
 
@@ -490,9 +493,9 @@ window.onload = function(){
               $( "#RComoE" ).hover(
                   
                   function() {
-                    $( this ).html( "> " + $( this ).html() );
+                    $( this ).animate({zoom: '105%'}, "fast");
                   }, function() {
-                    $( this ).html(origComoE);
+                    $( this ).animate({zoom: '100%'}, "fast");
                   }
               );
 
@@ -514,20 +517,20 @@ window.onload = function(){
 
     function tela3_3(){
         //$(".chat__inner").append(frase(dialogos[41], 5, "NPC"));
-        $(".chat__inner").append(frase(dialogos[42], 25, "NPC"));
-        $(".chat__inner").append(frase(dialogos[43], 45, "NPC"));
-        $(".chat__inner").append(frase(dialogos[44], 65, "NPC"));
-        $(".chat__inner").append(frase(dialogos[45], 85, "NPC"));
+        $(".chat__inner").append(frase(dialogos[42], 5, "NPC"));
+        $(".chat__inner").append(frase(dialogos[43], 25, "NPC"));
+        $(".chat__inner").append(frase(dialogos[44], 45, "NPC"));
+        $(".chat__inner").append(frase(dialogos[45], 65, "NPC"));
  
-        $(".chat__inner").append(frase("<div id=\"RComoPosso\">como posso te ajudar?</div> <br><div id=\"RMeExpli\">me explica logo o que tá acontecendo!</div>", 105, "player"));
+        $(".chat__inner").append(frase("<div id=\"RComoPosso\">como posso te ajudar?</div> <br><div id=\"RMeExpli\">me explica logo o que tá acontecendo!</div>", 85, "player"));
 
         var origComoPosso = $( "#RComoPosso" ).html();
         $( "#RComoPosso" ).hover(
             
             function() {
-              $( this ).html( "> " + $( this ).html() );
+              $( this ).animate({zoom: '105%'}, "fast");
             }, function() {
-              $( this ).html(origComoPosso);
+              $( this ).animate({zoom: '100%'}, "fast");
             }
         );
 
@@ -535,9 +538,9 @@ window.onload = function(){
         $( "#RMeExpli" ).hover(
             
             function() {
-              $( this ).html( "> " + $( this ).html() );
+              $( this ).animate({zoom: '102%'}, "fast");
             }, function() {
-              $( this ).html(origMeExpli);
+              $( this ).animate({zoom: '100%'}, "fast");
             }
         );
 
@@ -548,15 +551,115 @@ window.onload = function(){
     function magraLuztela() {
       $("#chat").hide();
       $("#not06").hide();
+      $("#chatMaga").show()
       magraluz.feliz();
       $(".chatM__inner").append(fraseM(dialogos_magraluz[1], 20, "NPC"));
       $(".chatM__inner").append(fraseM(dialogos_magraluz[2], 40, "NPC"));
       $(".chatM__inner").append(fraseM(dialogos_magraluz[3], 60, "NPC"));
       $(".chatM__inner").append(fraseM(dialogos_magraluz[4], 80, "NPC"));
+      setTimeout(()=> { 
+        //$("#self").show();
+        zapeden.self();
+        magraluz.feliz();
+      }, 100000 * textSpeed);
+      $(".chatM__inner").append(fraseM(dialogos_magraluz[5], 120, "NPC"));
+      $(".chatM__inner").append(fraseM(dialogos_magraluz[6], 140, "NPC"));
+      $(".chatM__inner").append(fraseM(dialogos_magraluz[7], 160, "NPC"));
+      $(".chatM__inner").append(fraseM(dialogos_magraluz[8], 180, "NPC"));
+      $(".chatM__inner").append(fraseM(dialogos_magraluz[9], 200, "NPC"));
+      $(".chatM__inner").append(fraseM(dialogos_magraluz[10], 220, "NPC"));
+      $(".chatM__inner").append(fraseM(dialogos_magraluz[11], 240, "NPC"));
+      $(".chatM__inner").append(fraseM(dialogos_magraluz[12], 260, "NPC"));
+      setTimeout(()=> { 
+        //$("#self").hide();
+        magraluz.pensativa();
+        zapeden.elos();
+        //$("#elos").show();
+      }, 270000 * textSpeed);
+      $(".chatM__inner").append(fraseM(dialogos_magraluz[13], 280, "NPC"));
+      $(".chatM__inner").append(fraseM(dialogos_magraluz[14], 300, "NPC"));
+      $(".chatM__inner").append(fraseM(dialogos_magraluz[15], 320, "NPC"));
+      $(".chatM__inner").append(fraseM(dialogos_magraluz[16], 340, "NPC"));
+      $(".chatM__inner").append(fraseM(dialogos_magraluz[17], 360, "NPC"));
+
+      setTimeout(()=> { 
+        //$("#elos").hide();
+        magraluz.sorriso();
+        zapeden.soma();
+        //$("#soma").show();
+      }, 370000 * textSpeed);
+      $(".chatM__inner").append(fraseM(dialogos_magraluz[18], 380, "NPC"));
+      $(".chatM__inner").append(fraseM(dialogos_magraluz[19], 400, "NPC"));
+      $(".chatM__inner").append(fraseM(dialogos_magraluz[20], 420, "NPC"));
+      $(".chatM__inner").append(fraseM(dialogos_magraluz[21]+ "<br><div id=\"RSimM\">Sim </div> <div id=\"RNaoE\"> Não</div>", 440, "NPC"));
+
+      //$(".chatM__inner").append(fraseM("<div id=\"RSimM\">Sim</div> <br><div id=\"RNaoE\">Não</div>", 440, "player"));
+              
+      var origMeme = $( "#RSimM" ).html();
+      $( "#RSimM" ).hover(
+          
+          function() {
+            $( this ).animate({zoom: '110%'}, "fast");
+          }, function() {
+            $( this ).animate({zoom: '100%'}, "fast");
+          }
+      );
+
+      var origComoE = $( "#RNaoE" ).html();
+      $( "#RNaoE" ).hover(
+          
+          function() {
+            $( this ).animate({zoom: '110%'}, "fast");
+          }, function() {
+            $( this ).animate({zoom: '100%'}, "fast");
+          }
+      );
+
+      $( "#RSimM" ).click(function () { magraLuztela_cont() });
+      $( "#RNaoE" ).click(function () { magraLuztela_cont() });
 
     }
-    function tela4(){
+    function magraLuztela_cont() {
+      $(".chatM__inner").append(fraseM(dialogos_magraluz[22], 0, "NPC"));
+      $(".chatM__inner").append(fraseM(dialogos_magraluz[23], 20, "NPC"));
+      $(".chatM__inner").append(fraseM(dialogos_magraluz[24], 40, "NPC"));
+      $(".chatM__inner").append(fraseM(dialogos_magraluz[25], 60, "NPC"));
+      $(".chatM__inner").append(fraseM(dialogos_magraluz[26], 80, "NPC"));
+      $(".chatM__inner").append(fraseM(dialogos_magraluz[27], 100, "NPC"));
+      setTimeout(()=> { 
+        //$("#soma").hide();
+        magraluz.glitch02();
+        zapeden.cosmo();
+        //$("#cosmo").show();
+      }, 120000 * textSpeed);
+      $(".chatM__inner").append(fraseM(dialogos_magraluz[28], 140, "NPC"));
+      $(".chatM__inner").append(fraseM(dialogos_magraluz[29], 160, "NPC"));
+      $(".chatM__inner").append(fraseM(dialogos_magraluz[30], 180, "NPC"));
+      $(".chatM__inner").append(fraseM(dialogos_magraluz[31], 200, "NPC"));
+      $(".chatM__inner").append(fraseM(dialogos_magraluz[32], 220, "NPC"));
+      $(".chatM__inner").append(fraseM(dialogos_magraluz[33], 240, "NPC"));
+      $(".chatM__inner").append(fraseM(dialogos_magraluz[34], 260, "NPC"));
+      $(".chatM__inner").append(fraseM(dialogos_magraluz[35], 280, "NPC"));
+      $(".chatM__inner").append(fraseM(dialogos_magraluz[36], 300, "NPC"));
+      $(".chatM__inner").append(fraseM(dialogos_magraluz[37], 320, "NPC"));
+      $(".chatM__inner").append(fraseM(dialogos_magraluz[38], 340, "NPC"));
+      setTimeout(()=> { 
+        //$("#cosmo").hide();
+        $("#slideshowZ").hide();
+        magraluz.glitch01();
+        //$("#chat").html("");
+        $("#chat").show();
         
+        $("#chatMaga").hide()
+        $("#slideshow").hide();
+        tela4();
+      }, 360000 * textSpeed);
+      setTimeout(()=> {
+        window.location.reload();
+      }, 460000 * textSpeed);
+    }
+    function tela4(){
+        $(".chat__inner").html("");
         $(".chat__inner").append(frase(dialogos[46], 5, "NPC"));
         $(".chat__inner").append(frase(dialogos[47], 25, "NPC"));
         $(".chat__inner").append(frase(dialogos[48], 35, "NPC"));

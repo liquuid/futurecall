@@ -12,6 +12,7 @@
 
     <script src="fc.js"></script>
     <script src="magraluz.js"></script>
+    <script src="zapeden.js"></script>
 </head>
 <body>
 <div class="wrapper"></div>
@@ -23,13 +24,21 @@
    <img class="banner" src="assets/phaser3/notificacao.png"/>
 
    <img id="slideshow" width="50%" src=""/>
+   <img id="slideshowZ" width="1920" src=""/>
    <div id="chat" draggable="true">
       <div id="chatheader">C:\</div>
       <div class="chat" id="chatWin"></div>
       <div class="chatInput">
          <div class="chatInput">
-            <input type="text" id="inputText">
-            <button id="enviar" >Enviar</button>
+           
+            <div class="cursor">
+               <input type="text" id="inputText" class="rq-form-element" />
+               <img id="enviar" src="assets/phaser3/botao.png">
+               <i></i>
+               </div>
+           
+            <!-- <button id="enviar" >Enviar</button> -->
+            
          </div> 
       </div>
    </div>
@@ -52,6 +61,11 @@
    <img id="not05" class="imagem" width="600" src="assets/phaser3/not05.png"/>
    <img id="not06" class="imagem" width="600" src="assets/phaser3/not06.png"/>
 
+   <img id="self" class="imagem" width="1920" src="assets/Self/self_06.webp"/>
+   <img id="cosmo" class="imagem" width="1920" src="assets/Cosmo/cosmo_06.webp"/>
+   <img id="elos" class="imagem" width="1920" src="assets/Elos/elos_06.webp"/>
+   <img id="soma" class="imagem" width="1920" src="assets/Soma/soma_06.webp"/>
+
    <img id="pin" class="imagem" src="assets/phaser3/pin.png"/>
    <img id="arrow" class="imagem" src="assets/phaser3/arrow.png"/>
    <!--<img id="maga" class="imagem" src="assets/phaser3/zap eden layout.webp"/>-->
@@ -67,6 +81,7 @@
       $( "#chat" ).draggable();
       $( "#chat" ).hide();
       $('.banner').hide();
+      $("#chatMaga").hide();
       $("#pin").hide();
       $("#arrow").hide();
       $("#vila").hide();
@@ -81,6 +96,12 @@
       $("#not04").hide();
       $("#not05").hide();
       $("#not06").hide();
+
+      $("#self").hide();
+      $("#cosmo").hide();
+      $("#elos").hide();
+      $("#soma").hide();
+
       $("#shared1").hide();
       $("#shared2").hide();
       $("#shared1").css("top", "310px");
@@ -89,6 +110,9 @@
       $("#shared2").css("left", "565px");
       $("#telecentro").hide();
       $(".wrapper").hide();
+      $("#inputText").prop( "disabled", true );
+      $("#enviar").prop( "disabled", true );
+      
     } );
 
    

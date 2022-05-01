@@ -28,12 +28,12 @@
   margin-top: 600px;
   cursor: move;
   position: fixed;
-  z-index: 2;
+  z-index: 11;
 }
 .chatMaga {
   display: flex;
   
-  height: 180px;
+  height: 220px;
   /*background-color: #fff;*/
   flex-direction: column-reverse;
   padding: .75rem;
@@ -46,6 +46,8 @@
 .chatMaga__content {
   flex: 0 1 auto;
   padding: 1rem;
+  padding-top: 70px;
+  padding-bottom: 50px;
   margin: 0 .5rem;
   background: #fff;
   border-radius: var(--radius); 
@@ -72,7 +74,8 @@
 }
 .chat__inner {
     display: flex;
-    flex-direction: column; }
+    flex-direction: column; 
+}
 .chat::before {
     content: "";
     position: absolute;
@@ -95,7 +98,7 @@
 }
 
 .chat__message {
-  width: 85%;
+  width: 90%;
   display: flex;
   align-items: flex-end;
   transform-origin: 0 100%;
@@ -174,7 +177,8 @@ code {
 
 .chatInput {
   background-color: #aaa;
-  padding: 20px 20px;
+  padding: 15px 15px;
+  border:0px solid #FF0000;
 }
 
 .banner { 
@@ -189,17 +193,20 @@ code {
 
 #inputText {
   font-size: 32px;
-  background-color: #aaa;
+  background-color: #fff;
   border-width:0px;
   border:none;
   -webkit-appearance: none;
-  width: 60% ;
+  width: 80% ;
+  outline: none;
 
 
 }
 
 #enviar {
   font-size: 24px;
+  float: right;
+  margin-top: -2%
 }
 
 #slideshow {
@@ -207,6 +214,12 @@ code {
   bottom: 0px;
   left: -100px;
   z-index: 10;
+}
+#slideshowZ {
+  position: fixed;
+  bottom: 0px;
+  left: -100px;
+  z-index: 8;
 }
 
 #pin {
@@ -263,3 +276,27 @@ background-size: 1800% 1800%;
     100%{background-position:0% 82%}
 }
 
+.cursor {
+  position: relative;
+}
+.cursor i {
+  position: absolute;
+  width: 1px;
+  height: 80%;
+  background-color: gray;
+  left: 5px;
+  top: 10%;
+  animation-name: blink;
+  animation-duration: 800ms;
+  animation-iteration-count: infinite;
+  opacity: 1;
+}
+
+.cursor input:focus + i {
+  display: none;
+}
+
+@keyframes blink {
+  from { opacity: 1; }
+  to { opacity: 0; }
+}
