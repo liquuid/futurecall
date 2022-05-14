@@ -59,9 +59,9 @@
   position: fixed;
   z-index: 2;
 }
+
 .chat {
   display: flex;
-  
   height: 740px;
   background-color: #000000;
   flex-direction: column-reverse;
@@ -72,6 +72,24 @@
   color: #00d201;
   position: relative; 
 }
+
+
+@media (max-height: 768px) {
+  .chat {
+    display: flex;
+    height: 440px;
+    background-color: #000000;
+    flex-direction: column-reverse;
+    padding: .75rem;
+    overflow: hidden;
+    border: 1px #9bc;
+    font: 32px "ModernDOS9x16";
+    color: #00d201;
+    position: relative; 
+  }
+};
+
+
 .chat__inner {
     display: flex;
     flex-direction: column; 
@@ -189,6 +207,7 @@ code {
   margin-left: auto;
   margin-right: auto;
   left:10%;
+  width: 80%;
 }
 
 #inputText {
@@ -209,6 +228,8 @@ code {
   margin-top: -2%
 }
 
+
+
 #slideshow {
   position: fixed;
   bottom: 0px;
@@ -224,13 +245,10 @@ code {
 
 #pin {
 z-index: 9;
+width: 100px;
 
 }
 
-#arrow {
-  z-index: 9;
-  
-}
 
 .imagem { 
   position: fixed;
@@ -238,6 +256,42 @@ z-index: 9;
   margin: 0 auto;
   z-index: 0;
 }
+#map1 { 
+  margin: -200px auto;
+}
+
+#arrow {
+
+  margin: 400px 1700px;
+  height: 200px;
+  width: 140px;
+}
+
+
+
+@media (max-height: 768px) {
+  .imagem { 
+    position: fixed;
+    display:block;
+    z-index: 0;
+    width: 100%;
+  }
+
+  #map1 { 
+    position: fixed;
+    display:block;
+    z-index: 0;
+    margin: -440px auto;
+    width: 100%;
+  }
+  #arrow {
+    margin: 350px 1033px;
+    height: 100px;
+    width: 70px;
+  }
+};
+
+
 
 .wrapper { 
   height: 100%;

@@ -1,4 +1,4 @@
-var textSpeed = 1/10;
+var textSpeed = 1/100;
 var nome;
 
 var dialogos = [
@@ -244,9 +244,15 @@ window.onload = function game(){
             $(".chat__inner").append(frase(dialogos[15], 125, "NPC"));
             $(".chat__inner").append(frase("<div id=\"PinBut\">[ Link ]</div>", 145, "NPC"));
             $( "#PinBut" ).click(function () { 
+              $("body").css("overflow", "hidden");
               $("#map1").show();
-              $("#pin").css("left", "1165px");
-              $("#pin").css("top", "810px");
+              if ( window.screen.height <= 768 ) {
+                $("#pin").css("left", "810px");
+                $("#pin").css("top", "210px");
+              } else {
+                $("#pin").css("left", "1165px");
+                $("#pin").css("top", "610px");
+              }
 
               $("#pin").show();
               $("#pin").effect( "pulsate", {times:5}, 3000 );
@@ -266,8 +272,11 @@ window.onload = function game(){
             $("#pin").click(function () { 
               $("#map1").hide();
               $("#map2").show();
-              $("#pin").css("top", "610px");
-              
+              if ( window.screen.height <= 768 ) {
+                $("#pin").css("top", "210px");
+              } else {
+                $("#pin").css("top", "610px");
+              }
               tela2_1(); 
             });
 
@@ -285,8 +294,8 @@ window.onload = function game(){
         $("#pin").hide();
         $("#arrow").show();
         
-        $("#arrow").css("top", "410px");
-        $("#arrow").css("left", "1565px");
+       // $("#arrow").css("top", "410px");
+       // $("#arrow").css("left", "1565px");
         $("#arrow").effect( "pulsate", {times:5}, 3000 );
         tela2_2() 
       });

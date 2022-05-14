@@ -1,7 +1,7 @@
 class ZapEden {
     cosmo () {
         let images = [
-            {"name":"img1", "src":"assets/Cosmo/cosmo_01.webp"},
+           /* {"name":"img1", "src":"assets/Cosmo/cosmo_01.webp"},
             {"name":"img1", "src":"assets/Cosmo/cosmo_02.webp"},
             {"name":"img1", "src":"assets/Cosmo/cosmo_03.webp"},
             {"name":"img1", "src":"assets/Cosmo/cosmo_04.webp"},
@@ -10,7 +10,7 @@ class ZapEden {
             {"name":"img1", "src":"assets/Cosmo/cosmo_07.webp"},
             {"name":"img1", "src":"assets/Cosmo/cosmo_08.webp"},
             {"name":"img1", "src":"assets/Cosmo/cosmo_09.webp"},
-            {"name":"img1", "src":"assets/Cosmo/cosmo_10.webp"},
+            {"name":"img1", "src":"assets/Cosmo/cosmo_10.webp"},*/
             {"name":"img1", "src":"assets/Cosmo/cosmo_11.webp"},
 
         ];
@@ -30,7 +30,7 @@ class ZapEden {
 
     elos () {
         let images = [
-            {"name":"img1", "src":"assets/Elos/elos_01.webp"},
+           /* {"name":"img1", "src":"assets/Elos/elos_01.webp"},
             {"name":"img1", "src":"assets/Elos/elos_02.webp"},
             {"name":"img1", "src":"assets/Elos/elos_03.webp"},
             {"name":"img1", "src":"assets/Elos/elos_04.webp"},
@@ -39,7 +39,7 @@ class ZapEden {
             {"name":"img1", "src":"assets/Elos/elos_07.webp"},
             {"name":"img1", "src":"assets/Elos/elos_08.webp"},
             {"name":"img1", "src":"assets/Elos/elos_09.webp"},
-            {"name":"img1", "src":"assets/Elos/elos_10.webp"},
+            {"name":"img1", "src":"assets/Elos/elos_10.webp"},*/
             {"name":"img1", "src":"assets/Elos/elos_11.webp"},
 
         ];
@@ -59,7 +59,7 @@ class ZapEden {
 
     menu () {
         let images = [
-            {"name":"img1", "src":"assets/Menu/future call_menu_01.webp"},
+         /*   {"name":"img1", "src":"assets/Menu/future call_menu_01.webp"},
             {"name":"img1", "src":"assets/Menu/future call_menu_02.webp"},
             {"name":"img1", "src":"assets/Menu/future call_menu_03.webp"},
             {"name":"img1", "src":"assets/Menu/future call_menu_04.webp"},
@@ -81,7 +81,7 @@ class ZapEden {
             {"name":"img1", "src":"assets/Menu/future call_menu_20.webp"},
             {"name":"img1", "src":"assets/Menu/future call_menu_21.webp"},
             {"name":"img1", "src":"assets/Menu/future call_menu_22.webp"},
-            {"name":"img1", "src":"assets/Menu/future call_menu_23.webp"},
+            {"name":"img1", "src":"assets/Menu/future call_menu_23.webp"},*/
             {"name":"img1", "src":"assets/Menu/future call_menu_24.webp"},
         ];
         let imgIndex = 0;
@@ -99,7 +99,7 @@ class ZapEden {
     }
     self () {
         let images = [
-            {"name":"img1", "src":"assets/Self/self_01.webp"},
+          /*  {"name":"img1", "src":"assets/Self/self_01.webp"},
             {"name":"img1", "src":"assets/Self/self_02.webp"},
             {"name":"img1", "src":"assets/Self/self_03.webp"},
             {"name":"img1", "src":"assets/Self/self_04.webp"},
@@ -108,7 +108,7 @@ class ZapEden {
             {"name":"img1", "src":"assets/Self/self_07.webp"},
             {"name":"img1", "src":"assets/Self/self_08.webp"},
             {"name":"img1", "src":"assets/Self/self_09.webp"},
-            {"name":"img1", "src":"assets/Self/self_10.webp"},
+            {"name":"img1", "src":"assets/Self/self_10.webp"},*/
             {"name":"img1", "src":"assets/Self/self_11.webp"},
             
         ];
@@ -127,7 +127,7 @@ class ZapEden {
     }
     soma () {
         let images = [
-            {"name":"img1", "src":"assets/Soma/soma_01.webp"},
+          /*  {"name":"img1", "src":"assets/Soma/soma_01.webp"},
             {"name":"img1", "src":"assets/Soma/soma_02.webp"},
             {"name":"img1", "src":"assets/Soma/soma_03.webp"},
             {"name":"img1", "src":"assets/Soma/soma_04.webp"},
@@ -136,7 +136,7 @@ class ZapEden {
             {"name":"img1", "src":"assets/Soma/soma_07.webp"},
             {"name":"img1", "src":"assets/Soma/soma_08.webp"},
             {"name":"img1", "src":"assets/Soma/soma_09.webp"},
-            {"name":"img1", "src":"assets/Soma/soma_10.webp"},
+            {"name":"img1", "src":"assets/Soma/soma_10.webp"},*/
             {"name":"img1", "src":"assets/Soma/soma_11.webp"},
         ];
         let imgIndex = 0;
