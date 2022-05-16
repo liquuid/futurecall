@@ -279,6 +279,13 @@ width: 100px;
   width: 140px;
 }
 
+@media (max-height: 900px) {
+  #arrow {
+    margin: 350px 1196px;
+    height: 100px;
+    width: 70px;
+  }
+}
 
 
 @media (max-height: 768px) {
@@ -305,11 +312,12 @@ width: 100px;
     width: 100%;
   }
   #arrow {
-    margin: 350px 1033px;
+    margin: 350px 1196px;
     height: 100px;
     width: 70px;
   }
 };
+
 
 
 
@@ -373,4 +381,9 @@ background-size: 1800% 1800%;
 @keyframes blink {
   from { opacity: 1; }
   to { opacity: 0; }
+}
+
+video {
+  height: 100%;
+  width: 100%;
 }

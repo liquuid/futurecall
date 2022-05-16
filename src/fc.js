@@ -159,10 +159,17 @@ function fraseM(text, time, quemfala) {
 }
 
 window.onload = function game(){
+                                                                                                            
     magraluz = new Magraluz(); 
     //zapeden = new ZapEden();
+   // $("body").css("overflow", "hidden");
+    $("video").bind("ended", function() { 
+      $("video").fadeOut(2000); 
+   //   $("body").css("overflow", "show");
+        setTimeout(function () { $(".bg-image" ).show()}  , 3000);
+    });
 
-    setTimeout( function () { $('.banner').show() }  , 1000);
+    setTimeout(function () { $('.banner').show() }  , 10000);
     
 
     $('.banner').click( function () {
@@ -261,8 +268,9 @@ window.onload = function game(){
 
 
               tela2() });
-           
+          
         }
+  
     } );
 
 
@@ -298,7 +306,7 @@ window.onload = function game(){
         
        // $("#arrow").css("top", "410px");
        // $("#arrow").css("left", "1565px");
-        $("#arrow").effect( "pulsate",  {times:11111111111}, 1000 );
+        $("#arrow").effect( "pulsate",  {times:1}, 1000 );
         tela2_2() 
       });
 
@@ -560,50 +568,50 @@ window.onload = function game(){
         
     }
     function magraLuztela() {
-      console.log('śsssssssssssss')
+      
       $("#chat").hide();
       $("#not06").hide();
       $("#chatMaga").show()
       magraluz.feliz();
-      $(".chatM__inner").append(fraseM(dialogos_magraluz[1], 20, "NPC"));
+      $(".chatM__inner").append(fraseM(dialogos_magraluz[1], 0, "NPC"));
       $(".chatM__inner").append(fraseM(dialogos_magraluz[2], 40, "NPC"));
-      $(".chatM__inner").append(fraseM(dialogos_magraluz[3], 60, "NPC"));
-      $(".chatM__inner").append(fraseM(dialogos_magraluz[4], 80, "NPC"));
+      $(".chatM__inner").append(fraseM(dialogos_magraluz[3], 80, "NPC"));
+      $(".chatM__inner").append(fraseM(dialogos_magraluz[4], 120, "NPC"));
       setTimeout(()=> { 
         $("#self").show();
         //zapeden.self();
         magraluz.feliz();
-      }, 100000 * textSpeed);
-      $(".chatM__inner").append(fraseM(dialogos_magraluz[5], 120, "NPC"));
-      $(".chatM__inner").append(fraseM(dialogos_magraluz[6], 140, "NPC"));
-      $(".chatM__inner").append(fraseM(dialogos_magraluz[7], 160, "NPC"));
-      $(".chatM__inner").append(fraseM(dialogos_magraluz[8], 180, "NPC"));
-      $(".chatM__inner").append(fraseM(dialogos_magraluz[9], 200, "NPC"));
-      $(".chatM__inner").append(fraseM(dialogos_magraluz[10], 220, "NPC"));
-      $(".chatM__inner").append(fraseM(dialogos_magraluz[11], 240, "NPC"));
-      $(".chatM__inner").append(fraseM(dialogos_magraluz[12], 260, "NPC"));
+      }, 130000 * textSpeed);
+      $(".chatM__inner").append(fraseM(dialogos_magraluz[5], 140, "NPC"));
+      $(".chatM__inner").append(fraseM(dialogos_magraluz[6], 180, "NPC"));
+      $(".chatM__inner").append(fraseM(dialogos_magraluz[7], 220, "NPC"));
+      $(".chatM__inner").append(fraseM(dialogos_magraluz[8], 260, "NPC"));
+      $(".chatM__inner").append(fraseM(dialogos_magraluz[9], 300, "NPC"));
+      $(".chatM__inner").append(fraseM(dialogos_magraluz[10], 320, "NPC"));
+      $(".chatM__inner").append(fraseM(dialogos_magraluz[11], 340, "NPC"));
+      $(".chatM__inner").append(fraseM(dialogos_magraluz[12], 380, "NPC"));
       setTimeout(()=> { 
         $("#self").hide();
         magraluz.pensativa();
         //zapeden.elos();
         $("#elos").show();
-      }, 270000 * textSpeed);
-      $(".chatM__inner").append(fraseM(dialogos_magraluz[13], 280, "NPC"));
-      $(".chatM__inner").append(fraseM(dialogos_magraluz[14], 300, "NPC"));
-      $(".chatM__inner").append(fraseM(dialogos_magraluz[15], 320, "NPC"));
-      $(".chatM__inner").append(fraseM(dialogos_magraluz[16], 340, "NPC"));
-      $(".chatM__inner").append(fraseM(dialogos_magraluz[17], 360, "NPC"));
+      }, 390000 * textSpeed);
+      $(".chatM__inner").append(fraseM(dialogos_magraluz[13], 420, "NPC"));
+      $(".chatM__inner").append(fraseM(dialogos_magraluz[14], 460, "NPC"));
+      $(".chatM__inner").append(fraseM(dialogos_magraluz[15], 500, "NPC"));
+      $(".chatM__inner").append(fraseM(dialogos_magraluz[16], 540, "NPC"));
+      $(".chatM__inner").append(fraseM(dialogos_magraluz[17], 580, "NPC"));
 
       setTimeout(()=> { 
         $("#elos").hide();
         magraluz.sorriso();
         //zapeden.soma();
         $("#soma").show();
-      }, 370000 * textSpeed);
-      $(".chatM__inner").append(fraseM(dialogos_magraluz[18], 380, "NPC"));
-      $(".chatM__inner").append(fraseM(dialogos_magraluz[19], 400, "NPC"));
-      $(".chatM__inner").append(fraseM(dialogos_magraluz[20], 420, "NPC"));
-      $(".chatM__inner").append(fraseM(dialogos_magraluz[21]+ "<br><div id=\"RSimM\">Sim </div> <div id=\"RNaoE\"> Não</div>", 440, "NPC"));
+      }, 590000 * textSpeed);
+      $(".chatM__inner").append(fraseM(dialogos_magraluz[18], 620, "NPC"));
+      $(".chatM__inner").append(fraseM(dialogos_magraluz[19], 660, "NPC"));
+      $(".chatM__inner").append(fraseM(dialogos_magraluz[20], 700, "NPC"));
+      $(".chatM__inner").append(fraseM(dialogos_magraluz[21]+ "<br><div id=\"RSimM\">Sim </div> <div id=\"RNaoE\"> Não</div>", 740, "NPC"));
 
       //$(".chatM__inner").append(fraseM("<div id=\"RSimM\">Sim</div> <br><div id=\"RNaoE\">Não</div>", 440, "player"));
               
@@ -633,28 +641,28 @@ window.onload = function game(){
     }
     function magraLuztela_cont() {
       $(".chatM__inner").append(fraseM(dialogos_magraluz[22], 0, "NPC"));
-      $(".chatM__inner").append(fraseM(dialogos_magraluz[23], 20, "NPC"));
-      $(".chatM__inner").append(fraseM(dialogos_magraluz[24], 40, "NPC"));
-      $(".chatM__inner").append(fraseM(dialogos_magraluz[25], 60, "NPC"));
-      $(".chatM__inner").append(fraseM(dialogos_magraluz[26], 80, "NPC"));
-      $(".chatM__inner").append(fraseM(dialogos_magraluz[27], 100, "NPC"));
+      $(".chatM__inner").append(fraseM(dialogos_magraluz[23], 40, "NPC"));
+      $(".chatM__inner").append(fraseM(dialogos_magraluz[24], 80, "NPC"));
+      $(".chatM__inner").append(fraseM(dialogos_magraluz[25], 120, "NPC"));
+      $(".chatM__inner").append(fraseM(dialogos_magraluz[26], 160, "NPC"));
+      $(".chatM__inner").append(fraseM(dialogos_magraluz[27], 200, "NPC"));
       setTimeout(()=> { 
         $("#soma").hide();
         //magraluz.glitch02();
-        zapeden.cosmo();
+        //zapeden.cosmo();
         $("#cosmo").show();
-      }, 120000 * textSpeed);
-      $(".chatM__inner").append(fraseM(dialogos_magraluz[28], 140, "NPC"));
-      $(".chatM__inner").append(fraseM(dialogos_magraluz[29], 160, "NPC"));
-      $(".chatM__inner").append(fraseM(dialogos_magraluz[30], 180, "NPC"));
-      $(".chatM__inner").append(fraseM(dialogos_magraluz[31], 200, "NPC"));
-      $(".chatM__inner").append(fraseM(dialogos_magraluz[32], 220, "NPC"));
-      $(".chatM__inner").append(fraseM(dialogos_magraluz[33], 240, "NPC"));
-      $(".chatM__inner").append(fraseM(dialogos_magraluz[34], 260, "NPC"));
-      $(".chatM__inner").append(fraseM(dialogos_magraluz[35], 280, "NPC"));
-      $(".chatM__inner").append(fraseM(dialogos_magraluz[36], 300, "NPC"));
-      $(".chatM__inner").append(fraseM(dialogos_magraluz[37], 320, "NPC"));
-      $(".chatM__inner").append(fraseM(dialogos_magraluz[38], 340, "NPC"));
+      }, 200000 * textSpeed);
+      $(".chatM__inner").append(fraseM(dialogos_magraluz[28], 220, "NPC"));
+      $(".chatM__inner").append(fraseM(dialogos_magraluz[29], 240, "NPC"));
+      $(".chatM__inner").append(fraseM(dialogos_magraluz[30], 260, "NPC"));
+      $(".chatM__inner").append(fraseM(dialogos_magraluz[31], 280, "NPC"));
+      $(".chatM__inner").append(fraseM(dialogos_magraluz[32], 300, "NPC"));
+      $(".chatM__inner").append(fraseM(dialogos_magraluz[33], 320, "NPC"));
+      $(".chatM__inner").append(fraseM(dialogos_magraluz[34], 340, "NPC"));
+      $(".chatM__inner").append(fraseM(dialogos_magraluz[35], 360, "NPC"));
+      $(".chatM__inner").append(fraseM(dialogos_magraluz[36], 380, "NPC"));
+      $(".chatM__inner").append(fraseM(dialogos_magraluz[37], 400, "NPC"));
+      $(".chatM__inner").append(fraseM(dialogos_magraluz[38], 420, "NPC"));
       setTimeout(()=> { 
         $("#cosmo").hide();
         $("#slideshowZ").hide();
@@ -665,9 +673,9 @@ window.onload = function game(){
         $("#chatMaga").hide()
         $("#slideshow").hide();
         tela4();
-      }, 360000 * textSpeed);
+      }, 440000 * textSpeed);
       setTimeout(()=> {
-        window.location.reload();
+         window.location.reload();
       }, 460000 * textSpeed);
     }
     function tela4(){
@@ -675,6 +683,7 @@ window.onload = function game(){
         $(".chat__inner").append(frase(dialogos[46], 5, "NPC"));
         $(".chat__inner").append(frase(dialogos[47], 25, "NPC"));
         $(".chat__inner").append(frase(dialogos[48], 35, "NPC"));
+        $("#tobe" ).fadeIn(2000)
     };
 
 
