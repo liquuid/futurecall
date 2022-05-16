@@ -676,7 +676,7 @@ window.onload = function game(){
       }, 440000 * textSpeed);
       setTimeout(()=> {
          window.location.reload();
-      }, 540000 * textSpeed);
+      }, 640000 * textSpeed);
     }
     function tela4(){
         $(".chat__inner").html("");
