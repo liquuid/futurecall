@@ -683,7 +683,10 @@ window.onload = function game(){
         $(".chat__inner").append(frase(dialogos[46], 5, "NPC"));
         $(".chat__inner").append(frase(dialogos[47], 25, "NPC"));
         $(".chat__inner").append(frase(dialogos[48], 35, "NPC"));
-        $("#tobe" ).fadeIn(2000)
+        
+        setTimeout(()=> {
+          $("#tobe" ).fadeIn(2000)
+       }, 540000 * textSpeed);
     };
 
 
