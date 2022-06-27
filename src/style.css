@@ -62,7 +62,7 @@
   padding-bottom: 50px;
   margin: 0 .5rem;
   background: #fff;
-  border-radius: var(--radius); 
+  /*border-radius: var(--radius); */
 }
 
 #chat {

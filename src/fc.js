@@ -119,8 +119,10 @@ var dialogos_magraluz = [
 "Além disso...",
 "Foi detectado que 01 de seus contatos pode ser um robô ou uma conta maliciosa.",
 "Deseja deletar contato agora?",
-
 ]
+
+var inputState = false;
+
 function frase(text, time, quemfala) {
     let speaker;
     if (quemfala === "player" ){
@@ -161,8 +163,8 @@ function fraseM(text, time, quemfala) {
 window.onload = function game(){
                                                                                                             
     magraluz = new Magraluz(); 
-    //zapeden = new ZapEden();
-   // $("body").css("overflow", "hidden");
+    inputState = false;
+
     $("video").bind("ended", function() { 
       $("video").fadeOut(2000); 
    //   $("body").css("overflow", "show");
@@ -172,12 +174,16 @@ window.onload = function game(){
     setTimeout(function () { $('.banner').show() }  , 10000);
     
 
-    $('.banner').click( function () {
+    $('.banner').one( 'click', function () {
       $(".banner").hide();
       $( "#chat" ).show();
+
+      setTimeout(() => {
+        inputState = true;
+      }, 11500);
     });
     
-    $('#inputText').prop( "disabled", true );
+    $('#inputText').prop( "disabled", false );
     $('#enviar').prop( "disabled", true );
 
 
@@ -199,79 +205,85 @@ window.onload = function game(){
     $(".chat__inner").append(frase(dialogos[3], 60, "NPC"));
     $(".chat__inner").append(frase(dialogos[4], 85, "NPC"));
     $(".chat__inner").append(frase(dialogos[5], 105, "NPC"));
-    $(".chat__inner").append(frase(dialogos[6], 115, "NPC"));
+    $(".chat__inner").append(frase(dialogos[6], 115, "NPC"), console.log('dddd'));
     
-    $('#inputText').prop( "disabled", false );
-    $('#enviar').prop( "disabled", false );
 
-
-    $('#enviar').click(function () { 
-        console.log($('#inputText').val());
-        $('#inputText').prop( "disabled", true );
-        $('#enviar').prop( "disabled", true );
-        nome = $('#inputText').val();
-        $('#inputText').val("");
-        $(".chat__inner").append(frase(nome, 1, "player"));
-        dialogos[7] = dialogos[7] + nome;
-        $(".chat__inner").append(frase(dialogos[7], 5, "NPC"));
-        $(".chat__inner").append(frase(dialogos[8], 35, "NPC"));
-
-
-        $(".chat__inner").append(frase("<div id=\"RQuem\">Quem é você?</div> <br><div id=\"RQuet\">Que tipo de ajuda?</div>", 45, "player"));
-        
-        var origQuem = $( "#RQuem" ).html();
-        $( "#RQuem" ).hover(
-            
-            function() {
-              $( this ).animate({zoom: '105%'}, "fast");
-            }, function() {
-              $( this ).animate({zoom: '100%'}, "fast");
-            }
-        );
-
-        var origQuet = $( "#RQuet" ).html();
-        $( "#RQuet" ).hover(
-            
-            function() {
-              $( this ).animate({zoom: '105%'}, "fast");
-            }, function() {
-              $( this ).animate({zoom: '100%'}, "fast");
-            }
-        );
-
-
-        $( "#RQuem" ).click(function () { resto() });
-        $( "#RQuet" ).click(function () { resto() });
-
-        function resto () {
-            $(".chat__inner").append(frase(dialogos[9], 5, "NPC"));
-            $(".chat__inner").append(frase(dialogos[10], 25, "NPC"));
-            $(".chat__inner").append(frase(dialogos[11], 45, "NPC"));
-            $(".chat__inner").append(frase(dialogos[12], 55, "NPC"));
-            $(".chat__inner").append(frase(dialogos[13], 85, "NPC"));
-            $(".chat__inner").append(frase(dialogos[14], 105, "NPC"));
-            $(".chat__inner").append(frase(dialogos[15], 125, "NPC"));
-            $(".chat__inner").append(frase("<div id=\"PinBut\">[ Link ]</div>", 145, "NPC"));
-            $( "#PinBut" ).click(function () { 
-              $("body").css("overflow", "hidden");
-              $("#map1").show();
-              if ( window.screen.height <= 768 ) {
-                $("#pin").css("left", "810px");
-                $("#pin").css("top", "210px");
-              } else {
-                $("#pin").css("left", "1165px");
-                $("#pin").css("top", "610px");
-              }
-
-              $("#pin").show();
-              $("#pin").effect( "pulsate", {times:1}, 1000 );
-
-
-              tela2() });
+      $('#enviar').click( function () { 
+        if (inputState == false ) {
+          console.log("false")
           
-        }
-  
-    } );
+          $('#enviar').prop( "disabled", true );
+          return false;
+        } else {
+              inputState = false;
+
+              console.log($('#inputText').val());
+              $('#inputText').prop( "disabled", true );
+              $('#enviar').prop( "disabled", true );
+              nome = $('#inputText').val();
+              $('#inputText').val("");
+              $(".chat__inner").append(frase(nome, 1, "player"));
+              dialogos[7] = dialogos[7] + nome;
+              $(".chat__inner").append(frase(dialogos[7], 5, "NPC"));
+              $(".chat__inner").append(frase(dialogos[8], 35, "NPC"));
+
+
+              $(".chat__inner").append(frase("<div id=\"RQuem\">Quem é você?</div> <br><div id=\"RQuet\">Que tipo de ajuda?</div>", 45, "player"));
+              
+              var origQuem = $( "#RQuem" ).html();
+              $( "#RQuem" ).hover(
+                  
+                  function() {
+                    $( this ).animate({zoom: '105%'}, "fast");
+                  }, function() {
+                    $( this ).animate({zoom: '100%'}, "fast");
+                  }
+              );
+
+              var origQuet = $( "#RQuet" ).html();
+              $( "#RQuet" ).hover(
+                  
+                  function() {
+                    $( this ).animate({zoom: '105%'}, "fast");
+                  }, function() {
+                    $( this ).animate({zoom: '100%'}, "fast");
+                  }
+              );
+
+
+              $( "#RQuem" ).one('click' , function () { $( "#RQuet" ).fadeOut() ; resto()  });
+              $( "#RQuet" ).one('click' , function () { $( "#RQuem" ).fadeOut() ; resto()  });
+          }
+      })
+    function resto () {
+        $(".chat__inner").append(frase(dialogos[9], 5, "NPC"));
+        $(".chat__inner").append(frase(dialogos[10], 25, "NPC"));
+        $(".chat__inner").append(frase(dialogos[11], 45, "NPC"));
+        $(".chat__inner").append(frase(dialogos[12], 55, "NPC"));
+        $(".chat__inner").append(frase(dialogos[13], 85, "NPC"));
+        $(".chat__inner").append(frase(dialogos[14], 105, "NPC"));
+        $(".chat__inner").append(frase(dialogos[15], 125, "NPC"));
+        $(".chat__inner").append(frase("<div id=\"PinBut\">[ Link ]</div>", 145, "NPC"));
+        $( "#PinBut" ).one('click', function () { 
+          $("body").css("overflow", "hidden");
+          $("#map1").show();
+          if ( window.screen.height <= 768 ) {
+            $("#pin").css("left", "810px");
+            $("#pin").css("top", "210px");
+          } else {
+            $("#pin").css("left", "1165px");
+            $("#pin").css("top", "610px");
+          }
+
+          $("#pin").show();
+          $("#pin").effect( "pulsate", {times:1}, 1000 );
+
+
+          tela2() });
+        
+    }
+    
+    
 
 
 
@@ -279,7 +291,7 @@ window.onload = function game(){
 
             $(".chat__inner").append(frase(dialogos[16], 5, "NPC"));
             $(".chat__inner").append(frase(dialogos[17], 25, "NPC"));
-            $("#pin").click(function () { 
+            $("#pin").one('click', function () { 
               $("#map1").hide();
               $("#map2").show();
               if ( window.screen.height <= 768 ) {
@@ -297,7 +309,7 @@ window.onload = function game(){
       $(".chat__inner").append(frase(dialogos[18], 5, "NPC"));
       $(".chat__inner").append(frase(dialogos[19], 25, "NPC"));
       $( "#pin" ).unbind("click");
-      $( "#pin" ).click(function () { 
+      $( "#pin" ).one('click', function () { 
        
         $("#map2").hide();
         $("#vila").show();
@@ -318,9 +330,9 @@ window.onload = function game(){
       $(".chat__inner").append(frase(dialogos[21], 25, "NPC"));
       $(".chat__inner").append(frase(dialogos[22], 45, "NPC"));
       $(".chat__inner").append(frase(dialogos[23], 65, "NPC"));
-      $(".chat__inner").append(frase("<div id=\"ImagemCli\">[ IMAGEM ]</div>", 85, "NPC"));
+      //$(".chat__inner").append(frase("<div id=\"ImagemCli\">[ IMAGEM ]</div>", 85, "NPC"));
       $( "#pin" ).unbind("click");
-      $( "#arrow" ).click(function () { 
+      $( "#arrow" ).one('click', function () { 
         $("#arrow").hide();
         $("#vila").hide();
         $("#telecentro").show();
@@ -369,9 +381,9 @@ window.onload = function game(){
             }
         );
 
-        $( "#R2022" ).click(function () { tela3_1() });
-        $( "#R2023" ).click(function () { tela3_1() });
-        $( "#R2024" ).click(function () { tela3_1() });
+        $( "#R2022" ).one('click', function () { tela3_1(); $("#R2023").fadeOut();$("#R2024").fadeOut()  });
+        $( "#R2023" ).one('click', function () { tela3_1(); $("#R2022").fadeOut();$("#R2024").fadeOut()  });
+        $( "#R2024" ).one('click', function () { tela3_1(); $("#R2023").fadeOut();$("#R2022").fadeOut()  });
 
 
 };
@@ -389,8 +401,8 @@ window.onload = function game(){
             }
         );
 
-        $( "#RMeme" ).click(function () { tela3_2() });
-        $( "#RNaoP" ).click(function () { tela3_2() });
+        $( "#RMeme" ).one('click', function () { tela3_2() ; $("#RNaoP").fadeOut();  });
+        $( "#RNaoP" ).one('click', function () { tela3_2() ; $("#RMeme").fadeOut();  });
 
     }
 
@@ -405,7 +417,7 @@ window.onload = function game(){
         $(".chat__inner").append(frase(dialogos[31], 85, "NPC"));
         $(".chat__inner").append(frase(dialogos[32], 105, "NPC"));
 
-        $("#shared1").click(function () { 
+        $("#shared1").one('click', function () { 
           
           
           $("#shared1").hide();
@@ -415,7 +427,7 @@ window.onload = function game(){
           //$(".chat__inner").append(frase(dialogos[35], 185, "NPC"));
   
 
-          $("#shared2").click(function () { 
+          $("#shared2").one('click', function () { 
             $("#chat").hide();
             $("#shared2").hide();
             $("#blank").show();
@@ -470,7 +482,7 @@ window.onload = function game(){
           $("#not04").css("top", "650px");
           $("#not04").css("left", "100px");
           $("#not04").show();
-          $("#not04").click(() => {
+          $("#not04").one('click', () => {
             $(".img1").css("background-image", "url()");
             $(".wrapper").show();
             $(".bg-image").css("height", "0");
@@ -518,8 +530,8 @@ window.onload = function game(){
                   }
               );
 
-              $( "#RFoiM" ).click(function () { tela3_3() });
-              $( "#RComoE" ).click(function () { tela3_3() });
+              $( "#RFoiM" ).one('click', function () { tela3_3() ; $("#RComoE").fadeOut()});
+              $( "#RComoE" ).one('click', function () { tela3_3() ; $("#RFoiM").fadeOut()});
           
 
 
@@ -563,8 +575,8 @@ window.onload = function game(){
             }
         );
 
-        $( "#RComoPosso" ).click(function () { magraLuztela() });
-        $( "#RMeExpli" ).click(function () { magraLuztela() });
+        $( "#RComoPosso" ).one('click', function () { magraLuztela() ; $("#RMeExpli").fadeOut()});
+        $( "#RMeExpli" ).one('click', function () { magraLuztela() ; $("#RComoPosso").fadeOut()});
         
     }
     function magraLuztela() {
@@ -635,8 +647,8 @@ window.onload = function game(){
           }
       );
 
-      $( "#RSimM" ).click(function () { magraLuztela_cont() });
-      $( "#RNaoE" ).click(function () { magraLuztela_cont() });
+      $( "#RSimM" ).one('click', function () { magraLuztela_cont() ; $("#RNaoE").fadeOut() });
+      $( "#RNaoE" ).one('click', function () { magraLuztela_cont() ; $("#RSimM").fadeOut()});
 
     }
     function magraLuztela_cont() {
@@ -683,15 +695,15 @@ window.onload = function game(){
         $(".chat__inner").append(frase(dialogos[46], 5, "NPC"));
         $(".chat__inner").append(frase(dialogos[47], 25, "NPC"));
         $(".chat__inner").append(frase(dialogos[48], 35, "NPC"));
-        
+        inputState = false;
         setTimeout(()=> {
           $("#tobe" ).fadeIn(2000)
-       }, 540000 * textSpeed);
+       }, 4000);
     };
 
 
 
-
+  }
     
 
-}
+
